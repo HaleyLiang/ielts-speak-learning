@@ -4,7 +4,7 @@
  */
 
 import { useState, useRef } from 'react';
-import { Shuffle, Mic, MicOff, Send, Save, RotateCcw, Sparkles, Volume2, Check } from 'lucide-react';
+import { Shuffle, Mic, MicOff, Send, Save, RotateCcw, Sparkles, Volume2, Check, ArrowRight } from 'lucide-react';
 import useStore from '../stores/useStore';
 import useI18n from '../i18n/useI18n';
 import { drawRandomTopics, generateAnswer, compareAnswer, saveAnswer } from '../services/api';
@@ -26,6 +26,7 @@ export default function PracticeMode() {
   const [loading, setLoading] = useState(false);
   const [chatMessages, setChatMessages] = useState([]);
   const [isSaved, setIsSaved] = useState(false);
+  const [typedInput, setTypedInput] = useState('');
   const stopRef = useRef(null);
 
   const addMessage = (msg) => setChatMessages(prev => [...prev, msg]);
@@ -175,6 +176,44 @@ export default function PracticeMode() {
     }
   };
 
+  // Submit typed response (fallback for speech)
+  const handleSubmitTyped = async () => {
+    if (!typedInput.trim()) return;
+    const text = typedInput;
+    setTypedInput('');
+
+    addMessage({ sender: 'user', text });
+    setLoading(true);
+
+    try {
+      const result = await compareAnswer({
+        question_id: selectedQuestion.id,
+        user_spoken_text: text,
+        reference_answer: generatedAnswer.answer_text,
+        target_score: targetScore,
+        api_key: apiKey,
+        model: model,
+        base_url: baseUrl || undefined,
+      });
+
+      setFeedback(result);
+      setStep('feedback');
+      addMessage({
+        sender: 'ai',
+        text: t('practice.aiFeedback',
+          result.fluency_score,
+          result.vocabulary_score,
+          result.feedback,
+          result.suggestions?.map((s, i) => `${i + 1}. ${s}`).join('\n')
+        ),
+      });
+    } catch (err) {
+      addMessage({ sender: 'ai', text: `❌ ${t('common.error')}: ${err.message}` });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Reset
   const handleReset = () => {
     setStep('idle');
@@ -186,6 +225,7 @@ export default function PracticeMode() {
     setFeedback(null);
     setChatMessages([]);
     setIsSaved(false);
+    setTypedInput('');
   };
 
   return (
@@ -339,6 +379,26 @@ export default function PracticeMode() {
                 <span className="mic-label">
                   {isRecording ? t('practice.tapToStop') : t('practice.tapToRecord')}
                 </span>
+              </div>
+
+              {/* Text input fallback */}
+              <div style={{ display: 'flex', gap: 8, marginTop: 16 }}>
+                <input
+                  className="input"
+                  placeholder={t('practice.typeResponse')}
+                  value={typedInput}
+                  onChange={e => setTypedInput(e.target.value)}
+                  onKeyDown={e => e.key === 'Enter' && handleSubmitTyped()}
+                  style={{ flex: 1 }}
+                  id="practice-text-input"
+                />
+                <button
+                  className="btn btn-primary"
+                  onClick={handleSubmitTyped}
+                  disabled={!typedInput.trim() || loading}
+                >
+                  <ArrowRight size={16} />
+                </button>
               </div>
             </div>
           )}

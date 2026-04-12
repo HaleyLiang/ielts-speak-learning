@@ -31,6 +31,7 @@ export const locales = {
       liveTranscript: '实时转录：',
       tapToStop: '点击停止',
       tapToRecord: '点击录音',
+      typeResponse: '或者打字输入你的回答...',
       // AI messages
       aiDrawn: (p1, p23) => `🎲 已为你抽取两个话题！\n\n📗 **Part 1**：${p1}\n📘 **Part 2&3**：${p23}\n\n请选择下方的问题开始准备你的答案。`,
       aiSelectQuestion: (q) => `好的选择！让我们来准备这个问题：\n\n"${q}"\n\n告诉我你对这个话题的真实想法、经历或关键词。可以用中文或英文——我会帮你生成优质答案！💡`,
@@ -202,6 +203,7 @@ export const locales = {
       liveTranscript: 'Live Transcript:',
       tapToStop: 'Tap to stop',
       tapToRecord: 'Tap to record',
+      typeResponse: 'Or type your response...',
       aiDrawn: (p1, p23) => `🎲 I've drawn two topics for you!\n\n📗 **Part 1**: ${p1}\n📘 **Part 2&3**: ${p23}\n\nSelect a question below to start preparing your answer.`,
       aiSelectQuestion: (q) => `Great choice! Let's prepare for this question:\n\n"${q}"\n\nTell me your real thoughts, experiences, or ideas about this. You can write in Chinese or simple English keywords — I'll help you create a polished answer! 💡`,
       aiAnswerGenerated: (score, answer, phrases) => `Here's your personalized answer (targeting Band ${score}):\n\n"${answer}"\n\n✨ **Key Phrases**: ${phrases || 'N/A'}\n\nYou can save this answer and then practice speaking it! 🎤`,
