@@ -4,9 +4,11 @@
 
 import { ChevronDown, ChevronUp, CheckCircle, AlertCircle, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import useI18n from '../i18n/useI18n';
 
 export default function ScoreCard({ report }) {
   const [expandedSections, setExpandedSections] = useState({});
+  const { t } = useI18n();
 
   if (!report) return null;
 
@@ -28,7 +30,7 @@ export default function ScoreCard({ report }) {
         <div>
           <div className="score-big">{report.overall_band}</div>
           <div style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.75rem', fontWeight: 600, marginTop: 4 }}>
-            OVERALL BAND
+            {t('score.overallBand')}
           </div>
         </div>
       </div>
@@ -36,10 +38,10 @@ export default function ScoreCard({ report }) {
       {/* Four Criteria */}
       <div className="score-criteria">
         {[
-          { key: 'fc_score', label: 'Fluency', full: 'Fluency & Coherence' },
-          { key: 'lr_score', label: 'Lexical', full: 'Lexical Resource' },
-          { key: 'gra_score', label: 'Grammar', full: 'Grammar Range' },
-          { key: 'pr_score', label: 'Pronun.', full: 'Pronunciation' },
+          { key: 'fc_score', label: t('score.fluency') },
+          { key: 'lr_score', label: t('score.lexical') },
+          { key: 'gra_score', label: t('score.grammar') },
+          { key: 'pr_score', label: t('score.pronunciation') },
         ].map(({ key, label }) => (
           <div key={key} className="score-criterion">
             <div className="score-criterion-label">{label}</div>
@@ -53,7 +55,7 @@ export default function ScoreCard({ report }) {
       {/* Gap Analysis */}
       {report.gap_analysis && (
         <div className="card" style={{ marginTop: 16 }}>
-          <div className="heading-sm" style={{ marginBottom: 8 }}>📊 Gap Analysis</div>
+          <div className="heading-sm" style={{ marginBottom: 8 }}>{t('score.gapAnalysis')}</div>
           <div className="body-sm" style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}>
             {report.gap_analysis}
           </div>
@@ -75,7 +77,7 @@ export default function ScoreCard({ report }) {
               style={{ padding: 0, marginBottom: isExpanded ? 12 : 0 }}
             >
               <div style={{ flex: 1 }}>
-                <span className="heading-sm">Part {partNum}</span>
+                <span className="heading-sm">{t('score.part')} {partNum}</span>
                 <span className="mono" style={{ 
                   marginLeft: 8, 
                   color: scoreColor(feedback.score),
@@ -93,7 +95,7 @@ export default function ScoreCard({ report }) {
                 </div>
                 {feedback.highlights?.length > 0 && (
                   <div style={{ marginTop: 12 }}>
-                    <div className="caption" style={{ marginBottom: 6 }}>✨ Highlights</div>
+                    <div className="caption" style={{ marginBottom: 6 }}>{t('score.highlights')}</div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                       {feedback.highlights.map((h, j) => (
                         <span key={j} className="badge badge-info">{h}</span>
@@ -115,7 +117,7 @@ export default function ScoreCard({ report }) {
             onClick={() => toggleSection('grammar')}
             style={{ padding: 0, marginBottom: expandedSections.grammar ? 12 : 0 }}
           >
-            <span className="heading-sm">🔧 Grammar Corrections</span>
+            <span className="heading-sm">{t('score.grammarCorrections')}</span>
             <span className="badge badge-muted">{report.grammar_corrections.length}</span>
             {expandedSections.grammar ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
@@ -148,7 +150,7 @@ export default function ScoreCard({ report }) {
             onClick={() => toggleSection('expressions')}
             style={{ padding: 0, marginBottom: expandedSections.expressions ? 12 : 0 }}
           >
-            <span className="heading-sm">💡 Better Expressions</span>
+            <span className="heading-sm">{t('score.betterExpressions')}</span>
             <span className="badge badge-muted">{report.better_expressions.length}</span>
             {expandedSections.expressions ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>

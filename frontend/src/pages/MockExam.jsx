@@ -6,6 +6,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Play, Mic, MicOff, ArrowRight, StopCircle, RotateCcw } from 'lucide-react';
 import useStore from '../stores/useStore';
+import useI18n from '../i18n/useI18n';
 import { startExam, examRespond, transitionPart, endExam } from '../services/api';
 import { ChatBubble, TypingIndicator } from '../components/ChatBubble';
 import AudioWaveform from '../components/AudioWaveform';
@@ -22,6 +23,7 @@ const PART_LABELS = {
 
 export default function MockExam() {
   const { apiKey, model, baseUrl, targetScore } = useStore();
+  const { t } = useI18n();
   const [status, setStatus] = useState('idle'); // idle | running | part2-prep | scoring | completed
   const [currentPart, setCurrentPart] = useState('part1');
   const [sessionId, setSessionId] = useState(null);
@@ -50,7 +52,7 @@ export default function MockExam() {
   // Start exam
   const handleStartExam = async () => {
     if (!apiKey) {
-      alert('Please set your API key in Settings first.');
+      alert(t('exam.alertNoApiKey'));
       return;
     }
 
@@ -68,7 +70,7 @@ export default function MockExam() {
       setStatus('running');
       addMessage('examiner', result.first_question);
     } catch (err) {
-      alert('Failed to start exam: ' + err.message);
+      alert(t('exam.alertStartFailed') + err.message);
     } finally {
       setLoading(false);
     }
@@ -113,13 +115,13 @@ export default function MockExam() {
 
       addMessage('examiner', result.examiner_response);
     } catch (err) {
-      addMessage('examiner', `[Error: ${err.message}]`);
+      addMessage('examiner', `[${t('common.error')}: ${err.message}]`);
     } finally {
       setLoading(false);
     }
   };
 
-  // Send typed response (for Part 2 notes, etc.)
+  // Send typed response
   const [typedInput, setTypedInput] = useState('');
 
   const handleSendTyped = async () => {
@@ -141,7 +143,7 @@ export default function MockExam() {
 
       addMessage('examiner', result.examiner_response);
     } catch (err) {
-      addMessage('examiner', `[Error: ${err.message}]`);
+      addMessage('examiner', `[${t('common.error')}: ${err.message}]`);
     } finally {
       setLoading(false);
     }
@@ -169,7 +171,7 @@ export default function MockExam() {
         setPart2Timer('prep');
       }
     } catch (err) {
-      addMessage('examiner', `[Error: ${err.message}]`);
+      addMessage('examiner', `[${t('common.error')}: ${err.message}]`);
     } finally {
       setLoading(false);
     }
@@ -182,7 +184,6 @@ export default function MockExam() {
   };
 
   const handlePart2SpeakingComplete = () => {
-    // Part 2 time is up
     addMessage('examiner', "Thank you. That's the end of Part 2.");
   };
 
@@ -203,7 +204,7 @@ export default function MockExam() {
       setReport(result);
       setStatus('completed');
     } catch (err) {
-      alert('Failed to generate report: ' + err.message);
+      alert(t('exam.alertReportFailed') + err.message);
       setStatus('running');
     } finally {
       setLoading(false);
@@ -228,26 +229,24 @@ export default function MockExam() {
   return (
     <div className="page-container">
       <div className="page-header">
-        <h1 className="page-title">Mock Exam</h1>
-        <p className="page-subtitle">Full IELTS speaking simulation</p>
+        <h1 className="page-title">{t('exam.title')}</h1>
+        <p className="page-subtitle">{t('exam.subtitle')}</p>
       </div>
 
       {/* Idle State */}
       {status === 'idle' && (
         <div className="empty-state">
           <div className="empty-state-icon"><Play size={28} /></div>
-          <div className="empty-state-title">Start Mock Exam</div>
-          <div className="empty-state-text">
-            Experience a full IELTS speaking test with AI examiner and get a detailed score report.
-          </div>
+          <div className="empty-state-title">{t('exam.startTitle')}</div>
+          <div className="empty-state-text">{t('exam.startDesc')}</div>
 
           <div className="card" style={{ marginTop: 24, textAlign: 'left', width: '100%' }}>
-            <div className="heading-sm" style={{ marginBottom: 12 }}>Exam Structure</div>
+            <div className="heading-sm" style={{ marginBottom: 12 }}>{t('exam.examStructure')}</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               {[
-                { part: 'Part 1', desc: 'ID Check + 3 topics (4-5 min)', color: '#60A5FA' },
-                { part: 'Part 2', desc: '1 min prep + 2 min speech', color: '#A78BFA' },
-                { part: 'Part 3', desc: 'Discussion (4-5 min)', color: '#818CF8' },
+                { part: 'Part 1', desc: t('exam.part1Desc'), color: '#60A5FA' },
+                { part: 'Part 2', desc: t('exam.part2Desc'), color: '#A78BFA' },
+                { part: 'Part 3', desc: t('exam.part3Desc'), color: '#818CF8' },
               ].map(({ part, desc, color }) => (
                 <div key={part} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <div style={{
@@ -269,7 +268,7 @@ export default function MockExam() {
             style={{ marginTop: 24 }}
             id="start-exam-btn"
           >
-            {loading ? <div className="spinner" /> : <><Play size={20} /> Begin Exam</>}
+            {loading ? <div className="spinner" /> : <><Play size={20} /> {t('exam.beginExam')}</>}
           </button>
         </div>
       )}
@@ -304,7 +303,7 @@ export default function MockExam() {
                   duration={60}
                   isRunning={part2Timer === 'prep'}
                   onComplete={handlePrepComplete}
-                  label="PREP TIME"
+                  label={t('common.prepTime')}
                 />
               </div>
               <button
@@ -312,7 +311,7 @@ export default function MockExam() {
                 onClick={handlePrepComplete}
                 style={{ width: '100%' }}
               >
-                I'm Ready to Speak
+                {t('exam.readyToSpeak')}
               </button>
             </div>
           )}
@@ -324,7 +323,7 @@ export default function MockExam() {
                 duration={120}
                 isRunning={true}
                 onComplete={handlePart2SpeakingComplete}
-                label="SPEAKING"
+                label={t('common.speakingTime')}
               />
             </div>
           )}
@@ -351,7 +350,7 @@ export default function MockExam() {
               {/* Transcript Preview */}
               {transcript && (
                 <div className="card" style={{ marginTop: 8, fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-                  <div className="caption" style={{ marginBottom: 4 }}>Hearing:</div>
+                  <div className="caption" style={{ marginBottom: 4 }}>{t('exam.hearing')}</div>
                   {transcript}
                 </div>
               )}
@@ -367,7 +366,7 @@ export default function MockExam() {
                   {isRecording ? <MicOff size={28} /> : <Mic size={28} />}
                 </button>
                 <span className="mic-label">
-                  {isRecording ? 'Tap to send' : 'Tap to speak'}
+                  {isRecording ? t('exam.tapToSend') : t('exam.tapToSpeak')}
                 </span>
               </div>
 
@@ -375,7 +374,7 @@ export default function MockExam() {
               <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
                 <input
                   className="input"
-                  placeholder="Or type your response..."
+                  placeholder={t('exam.typeResponse')}
                   value={typedInput}
                   onChange={e => setTypedInput(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && handleSendTyped()}
@@ -391,16 +390,16 @@ export default function MockExam() {
               <div style={{ display: 'flex', gap: 8, marginTop: 16 }}>
                 {currentPart === 'part1' && (
                   <button className="btn btn-secondary" onClick={() => handleNextPart('part2')} disabled={loading} style={{ flex: 1 }}>
-                    <ArrowRight size={16} /> Move to Part 2
+                    <ArrowRight size={16} /> {t('exam.moveToPart2')}
                   </button>
                 )}
                 {currentPart === 'part2' && (
                   <button className="btn btn-secondary" onClick={() => handleNextPart('part3')} disabled={loading} style={{ flex: 1 }}>
-                    <ArrowRight size={16} /> Move to Part 3
+                    <ArrowRight size={16} /> {t('exam.moveToPart3')}
                   </button>
                 )}
                 <button className="btn btn-danger" onClick={handleEndExam} disabled={loading}>
-                  <StopCircle size={16} /> End Exam
+                  <StopCircle size={16} /> {t('exam.endExam')}
                 </button>
               </div>
             </div>
@@ -410,8 +409,8 @@ export default function MockExam() {
           {status === 'scoring' && (
             <div className="empty-state" style={{ paddingTop: 32 }}>
               <div className="spinner" style={{ width: 40, height: 40, borderWidth: 4 }} />
-              <div className="heading-sm" style={{ marginTop: 16 }}>Generating your report...</div>
-              <div className="caption">The AI examiner is evaluating your performance</div>
+              <div className="heading-sm" style={{ marginTop: 16 }}>{t('exam.generatingReport')}</div>
+              <div className="caption">{t('exam.evaluating')}</div>
             </div>
           )}
         </>
@@ -423,7 +422,7 @@ export default function MockExam() {
           <ScoreCard report={report} />
           <div style={{ marginTop: 24, display: 'flex', justifyContent: 'center' }}>
             <button className="btn btn-primary btn-lg" onClick={handleReset}>
-              <RotateCcw size={18} /> New Exam
+              <RotateCcw size={18} /> {t('exam.newExam')}
             </button>
           </div>
         </>

@@ -6,9 +6,11 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronRight, Plus, Trash2, Upload, Check, BookOpen, FileText } from 'lucide-react';
 import useStore from '../stores/useStore';
+import useI18n from '../i18n/useI18n';
 import { fetchTopics, fetchTopic, createTopic, deleteTopic, addQuestion, importQuestions } from '../services/api';
 
 export default function QuestionBank() {
+  const { t } = useI18n();
   const [topics, setTopics] = useState([]);
   const [expandedId, setExpandedId] = useState(null);
   const [expandedTopic, setExpandedTopic] = useState(null);
@@ -67,13 +69,13 @@ export default function QuestionBank() {
       setNewTopic({ title: '', part: 'part1', questions: '' });
       loadTopics();
     } catch (err) {
-      alert('Failed to add topic: ' + err.message);
+      alert(t('bank.addFailed') + err.message);
     }
   };
 
   const handleDeleteTopic = async (topicId, e) => {
     e.stopPropagation();
-    if (!confirm('Delete this topic and all its questions?')) return;
+    if (!confirm(t('bank.confirmDelete'))) return;
     try {
       await deleteTopic(topicId);
       if (expandedId === topicId) {
@@ -82,7 +84,7 @@ export default function QuestionBank() {
       }
       loadTopics();
     } catch (err) {
-      alert('Failed to delete topic: ' + err.message);
+      alert(t('bank.deleteFailed') + err.message);
     }
   };
 
@@ -91,12 +93,12 @@ export default function QuestionBank() {
       const data = JSON.parse(importJson);
       const importData = { topics: Array.isArray(data) ? data : data.topics || [data] };
       const result = await importQuestions(importData);
-      alert(`Successfully imported ${result.imported} topics!`);
+      alert(t('bank.importSuccess', result.imported));
       setShowImportModal(false);
       setImportJson('');
       loadTopics();
     } catch (err) {
-      alert('Failed to import: ' + err.message);
+      alert(t('bank.importFailed') + err.message);
     }
   };
 
@@ -106,17 +108,17 @@ export default function QuestionBank() {
   return (
     <div className="page-container">
       <div className="page-header">
-        <h1 className="page-title">Question Bank</h1>
-        <p className="page-subtitle">Manage your IELTS speaking topics</p>
+        <h1 className="page-title">{t('bank.title')}</h1>
+        <p className="page-subtitle">{t('bank.subtitle')}</p>
       </div>
 
       {/* Action Buttons */}
       <div style={{ display: 'flex', gap: 8, marginBottom: 20 }}>
         <button className="btn btn-primary btn-sm" onClick={() => setShowAddModal(true)} id="add-topic-btn">
-          <Plus size={16} /> Add Topic
+          <Plus size={16} /> {t('bank.addTopic')}
         </button>
         <button className="btn btn-secondary btn-sm" onClick={() => setShowImportModal(true)} id="import-btn">
-          <Upload size={16} /> Import
+          <Upload size={16} /> {t('bank.import')}
         </button>
       </div>
 
@@ -125,8 +127,8 @@ export default function QuestionBank() {
       ) : topics.length === 0 ? (
         <div className="empty-state">
           <div className="empty-state-icon"><BookOpen size={28} /></div>
-          <div className="empty-state-title">No topics yet</div>
-          <div className="empty-state-text">Add topics manually or import from a JSON file to get started.</div>
+          <div className="empty-state-title">{t('bank.noTopics')}</div>
+          <div className="empty-state-text">{t('bank.noTopicsDesc')}</div>
         </div>
       ) : (
         <div>
@@ -134,7 +136,7 @@ export default function QuestionBank() {
           <div style={{ marginBottom: 24 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
               <span className="part-tag part-tag-1">Part 1</span>
-              <span className="caption">{part1Topics.length} topics</span>
+              <span className="caption">{part1Topics.length} {t('bank.topics')}</span>
             </div>
             <div className="accordion">
               {part1Topics.map(topic => (
@@ -145,6 +147,7 @@ export default function QuestionBank() {
                   expandedData={expandedId === topic.id ? expandedTopic : null}
                   onToggle={() => handleExpand(topic.id)}
                   onDelete={(e) => handleDeleteTopic(topic.id, e)}
+                  t={t}
                 />
               ))}
             </div>
@@ -154,7 +157,7 @@ export default function QuestionBank() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
               <span className="part-tag part-tag-2">Part 2 & 3</span>
-              <span className="caption">{part2Topics.length} topics</span>
+              <span className="caption">{part2Topics.length} {t('bank.topics')}</span>
             </div>
             <div className="accordion">
               {part2Topics.map(topic => (
@@ -165,6 +168,7 @@ export default function QuestionBank() {
                   expandedData={expandedId === topic.id ? expandedTopic : null}
                   onToggle={() => handleExpand(topic.id)}
                   onDelete={(e) => handleDeleteTopic(topic.id, e)}
+                  t={t}
                 />
               ))}
             </div>
@@ -177,13 +181,13 @@ export default function QuestionBank() {
         <div className="modal-overlay" onClick={() => setShowAddModal(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
             <div className="modal-handle" />
-            <h2 className="heading-lg" style={{ marginBottom: 20 }}>Add New Topic</h2>
+            <h2 className="heading-lg" style={{ marginBottom: 20 }}>{t('bank.addNewTopic')}</h2>
 
             <div className="input-group">
-              <label className="input-label">Topic Title</label>
+              <label className="input-label">{t('bank.topicTitle')}</label>
               <input
                 className="input"
-                placeholder="e.g., Hometown"
+                placeholder={t('bank.topicTitlePlaceholder')}
                 value={newTopic.title}
                 onChange={e => setNewTopic(p => ({ ...p, title: e.target.value }))}
                 id="topic-title-input"
@@ -191,7 +195,7 @@ export default function QuestionBank() {
             </div>
 
             <div className="input-group">
-              <label className="input-label">Part</label>
+              <label className="input-label">{t('bank.part')}</label>
               <select
                 className="input select"
                 value={newTopic.part}
@@ -204,10 +208,10 @@ export default function QuestionBank() {
             </div>
 
             <div className="input-group">
-              <label className="input-label">Questions (one per line)</label>
+              <label className="input-label">{t('bank.questions')}</label>
               <textarea
                 className="input textarea"
-                placeholder="Where is your hometown?&#10;What do you like most about it?"
+                placeholder={t('bank.questionsPlaceholder')}
                 rows={4}
                 value={newTopic.questions}
                 onChange={e => setNewTopic(p => ({ ...p, questions: e.target.value }))}
@@ -217,10 +221,10 @@ export default function QuestionBank() {
 
             <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
               <button className="btn btn-primary" onClick={handleAddTopic} style={{ flex: 1 }}>
-                <Check size={16} /> Create Topic
+                <Check size={16} /> {t('bank.createTopic')}
               </button>
               <button className="btn btn-secondary" onClick={() => setShowAddModal(false)}>
-                Cancel
+                {t('bank.cancel')}
               </button>
             </div>
           </div>
@@ -232,10 +236,10 @@ export default function QuestionBank() {
         <div className="modal-overlay" onClick={() => setShowImportModal(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
             <div className="modal-handle" />
-            <h2 className="heading-lg" style={{ marginBottom: 20 }}>Import Questions</h2>
+            <h2 className="heading-lg" style={{ marginBottom: 20 }}>{t('bank.importQuestions')}</h2>
 
             <div className="input-group">
-              <label className="input-label">Paste JSON data</label>
+              <label className="input-label">{t('bank.pasteJson')}</label>
               <textarea
                 className="input textarea"
                 placeholder={'[\n  {\n    "title": "Hometown",\n    "part": "part1",\n    "questions": [\n      {"text": "Where is your hometown?"}\n    ]\n  }\n]'}
@@ -249,10 +253,10 @@ export default function QuestionBank() {
 
             <div style={{ display: 'flex', gap: 8 }}>
               <button className="btn btn-primary" onClick={handleImport} style={{ flex: 1 }}>
-                <Upload size={16} /> Import
+                <Upload size={16} /> {t('bank.import')}
               </button>
               <button className="btn btn-secondary" onClick={() => setShowImportModal(false)}>
-                Cancel
+                {t('bank.cancel')}
               </button>
             </div>
           </div>
@@ -262,7 +266,7 @@ export default function QuestionBank() {
   );
 }
 
-function TopicAccordion({ topic, isExpanded, expandedData, onToggle, onDelete }) {
+function TopicAccordion({ topic, isExpanded, expandedData, onToggle, onDelete, t }) {
   const progress = topic.total_count > 0 ? (topic.prepared_count / topic.total_count) * 100 : 0;
 
   return (
@@ -273,7 +277,7 @@ function TopicAccordion({ topic, isExpanded, expandedData, onToggle, onDelete })
         <div className="accordion-meta">
           {topic.prepared_count === topic.total_count && topic.total_count > 0 ? (
             <span className="badge badge-success">
-              <Check size={10} /> Ready
+              <Check size={10} /> {t('bank.ready')}
             </span>
           ) : topic.prepared_count > 0 ? (
             <span className="badge badge-warning">{topic.prepared_count}/{topic.total_count}</span>

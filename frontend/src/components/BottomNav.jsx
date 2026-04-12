@@ -4,15 +4,18 @@
 
 import { NavLink } from 'react-router-dom';
 import { BookOpen, Mic, GraduationCap, Settings } from 'lucide-react';
-
-const navItems = [
-  { to: '/practice', icon: Mic, label: 'Practice' },
-  { to: '/bank', icon: BookOpen, label: 'Bank' },
-  { to: '/exam', icon: GraduationCap, label: 'Exam' },
-  { to: '/settings', icon: Settings, label: 'Settings' },
-];
+import useI18n from '../i18n/useI18n';
 
 export default function BottomNav() {
+  const { t } = useI18n();
+
+  const navItems = [
+    { to: '/practice', icon: Mic, label: t('nav.practice') },
+    { to: '/bank', icon: BookOpen, label: t('nav.bank') },
+    { to: '/exam', icon: GraduationCap, label: t('nav.exam') },
+    { to: '/settings', icon: Settings, label: t('nav.settings') },
+  ];
+
   return (
     <nav className="bottom-nav" id="bottom-nav">
       {navItems.map(({ to, icon: Icon, label }) => (

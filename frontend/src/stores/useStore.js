@@ -14,11 +14,13 @@ const useStore = create(
       model: 'gpt-4o-mini',
       baseUrl: '',
       targetScore: 6.5,
+      language: 'zh-CN',
       
       setApiKey: (key) => set({ apiKey: key }),
       setModel: (model) => set({ model }),
       setBaseUrl: (url) => set({ baseUrl: url }),
       setTargetScore: (score) => set({ targetScore: score }),
+      setLanguage: (lang) => set({ language: lang }),
 
       // ─── Practice State ────────────────────────────────────
       practiceTopics: null,       // { part1_topic, part2_3_topic }
@@ -80,6 +82,7 @@ const useStore = create(
         model: state.model,
         baseUrl: state.baseUrl,
         targetScore: state.targetScore,
+        language: state.language,
       }),
     }
   )

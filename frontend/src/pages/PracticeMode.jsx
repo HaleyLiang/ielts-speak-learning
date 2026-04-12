@@ -6,6 +6,7 @@
 import { useState, useRef } from 'react';
 import { Shuffle, Mic, MicOff, Send, Save, RotateCcw, Sparkles, Volume2, Check } from 'lucide-react';
 import useStore from '../stores/useStore';
+import useI18n from '../i18n/useI18n';
 import { drawRandomTopics, generateAnswer, compareAnswer, saveAnswer } from '../services/api';
 import { ChatBubble, TypingIndicator } from '../components/ChatBubble';
 import AudioWaveform from '../components/AudioWaveform';
@@ -13,6 +14,7 @@ import { startListening, stopListening } from '../services/speech';
 
 export default function PracticeMode() {
   const { apiKey, model, baseUrl, targetScore } = useStore();
+  const { t } = useI18n();
   const [step, setStep] = useState('idle'); // idle | topics | question-select | generating | answer | speaking | feedback
   const [topics, setTopics] = useState(null);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
@@ -37,10 +39,10 @@ export default function PracticeMode() {
       setStep('topics');
       setChatMessages([{
         sender: 'ai',
-        text: `🎲 I've drawn two topics for you!\n\n📗 **Part 1**: ${data.part1_topic.title}\n📘 **Part 2&3**: ${data.part2_3_topic.title}\n\nSelect a question below to start preparing your answer.`,
+        text: t('practice.aiDrawn', data.part1_topic.title, data.part2_3_topic.title),
       }]);
     } catch (err) {
-      alert('Failed to draw topics: ' + err.message);
+      alert(t('practice.alertDrawFailed') + err.message);
     } finally {
       setLoading(false);
     }
@@ -52,7 +54,7 @@ export default function PracticeMode() {
     setStep('question-select');
     addMessage({
       sender: 'ai',
-      text: `Great choice! Let's prepare for this question:\n\n"${question.text}"\n\nTell me your real thoughts, experiences, or ideas about this. You can write in Chinese or simple English keywords — I'll help you create a polished answer! 💡`,
+      text: t('practice.aiSelectQuestion', question.text),
     });
   };
 
@@ -60,7 +62,7 @@ export default function PracticeMode() {
   const handleGenerateAnswer = async () => {
     if (!userInput.trim()) return;
     if (!apiKey) {
-      alert('Please set your API key in Settings first.');
+      alert(t('practice.alertNoApiKey'));
       return;
     }
 
@@ -84,10 +86,10 @@ export default function PracticeMode() {
       setStep('answer');
       addMessage({
         sender: 'ai',
-        text: `Here's your personalized answer (targeting Band ${targetScore}):\n\n"${result.answer_text}"\n\n✨ **Key Phrases**: ${result.key_phrases?.join(', ') || 'N/A'}\n\nYou can save this answer and then practice speaking it! 🎤`,
+        text: t('practice.aiAnswerGenerated', targetScore, result.answer_text, result.key_phrases?.join(', ')),
       });
     } catch (err) {
-      addMessage({ sender: 'ai', text: `❌ Error: ${err.message}` });
+      addMessage({ sender: 'ai', text: `❌ ${t('common.error')}: ${err.message}` });
       setStep('question-select');
     } finally {
       setLoading(false);
@@ -105,9 +107,9 @@ export default function PracticeMode() {
         target_score: targetScore,
       });
       setIsSaved(true);
-      addMessage({ sender: 'ai', text: '✅ Answer saved to your question bank!' });
+      addMessage({ sender: 'ai', text: t('practice.aiAnswerSaved') });
     } catch (err) {
-      alert('Failed to save: ' + err.message);
+      alert(t('practice.alertSaveFailed') + err.message);
     }
   };
 
@@ -136,7 +138,7 @@ export default function PracticeMode() {
     setIsRecording(false);
 
     if (!transcript.trim()) {
-      addMessage({ sender: 'ai', text: "I didn't catch anything. Try again? 🎤" });
+      addMessage({ sender: 'ai', text: t('practice.aiNoCatch') });
       setStep('answer');
       return;
     }
@@ -159,10 +161,15 @@ export default function PracticeMode() {
       setStep('feedback');
       addMessage({
         sender: 'ai',
-        text: `📊 **Your Practice Feedback**\n\n🗣️ Fluency: ${result.fluency_score}/9\n📖 Vocabulary: ${result.vocabulary_score}/9\n\n💬 ${result.feedback}\n\n📝 **Suggestions:**\n${result.suggestions?.map((s, i) => `${i + 1}. ${s}`).join('\n') || 'Great job!'}`,
+        text: t('practice.aiFeedback',
+          result.fluency_score,
+          result.vocabulary_score,
+          result.feedback,
+          result.suggestions?.map((s, i) => `${i + 1}. ${s}`).join('\n')
+        ),
       });
     } catch (err) {
-      addMessage({ sender: 'ai', text: `❌ Error comparing: ${err.message}` });
+      addMessage({ sender: 'ai', text: `❌ ${t('common.error')}: ${err.message}` });
     } finally {
       setLoading(false);
     }
@@ -184,18 +191,16 @@ export default function PracticeMode() {
   return (
     <div className="page-container">
       <div className="page-header">
-        <h1 className="page-title">Practice Mode</h1>
-        <p className="page-subtitle">AI-guided answer generation & speaking practice</p>
+        <h1 className="page-title">{t('practice.title')}</h1>
+        <p className="page-subtitle">{t('practice.subtitle')}</p>
       </div>
 
       {/* Idle State */}
       {step === 'idle' && (
         <div className="empty-state">
           <div className="empty-state-icon"><Sparkles size={28} /></div>
-          <div className="empty-state-title">Ready to Practice?</div>
-          <div className="empty-state-text">
-            Draw random topics, generate your personalized answer, and practice speaking!
-          </div>
+          <div className="empty-state-title">{t('practice.readyTitle')}</div>
+          <div className="empty-state-text">{t('practice.readyDesc')}</div>
           <button
             className="btn btn-primary btn-lg"
             onClick={handleDraw}
@@ -203,7 +208,7 @@ export default function PracticeMode() {
             style={{ marginTop: 24 }}
             id="draw-topics-btn"
           >
-            {loading ? <div className="spinner" /> : <><Shuffle size={20} /> Draw Topics</>}
+            {loading ? <div className="spinner" /> : <><Shuffle size={20} /> {t('practice.drawTopics')}</>}
           </button>
         </div>
       )}
@@ -214,7 +219,7 @@ export default function PracticeMode() {
           {/* Reset button */}
           <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 8 }}>
             <button className="btn btn-ghost btn-sm" onClick={handleReset}>
-              <RotateCcw size={14} /> Start Over
+              <RotateCcw size={14} /> {t('practice.startOver')}
             </button>
           </div>
 
@@ -229,7 +234,7 @@ export default function PracticeMode() {
           {/* Topic Selection */}
           {step === 'topics' && topics && (
             <div style={{ marginTop: 16 }}>
-              <div className="heading-sm" style={{ marginBottom: 12 }}>Select a question to prepare:</div>
+              <div className="heading-sm" style={{ marginBottom: 12 }}>{t('practice.selectQuestion')}</div>
 
               {/* Part 1 */}
               <div className="card" style={{ marginBottom: 12 }}>
@@ -271,10 +276,10 @@ export default function PracticeMode() {
           {step === 'question-select' && (
             <div style={{ marginTop: 16 }}>
               <div className="input-group">
-                <label className="input-label">Share your ideas (Chinese or English)</label>
+                <label className="input-label">{t('practice.shareIdeas')}</label>
                 <textarea
                   className="input textarea"
-                  placeholder="告诉我你对这个话题的真实想法..."
+                  placeholder={t('practice.ideasPlaceholder')}
                   rows={4}
                   value={userInput}
                   onChange={e => setUserInput(e.target.value)}
@@ -287,7 +292,7 @@ export default function PracticeMode() {
                 disabled={!userInput.trim() || loading}
                 style={{ width: '100%' }}
               >
-                <Sparkles size={16} /> Generate My Answer
+                <Sparkles size={16} /> {t('practice.generateAnswer')}
               </button>
             </div>
           )}
@@ -297,17 +302,17 @@ export default function PracticeMode() {
             <div style={{ display: 'flex', gap: 8, marginTop: 16, flexWrap: 'wrap' }}>
               {!isSaved && (
                 <button className="btn btn-secondary" onClick={handleSave}>
-                  <Save size={16} /> Save Answer
+                  <Save size={16} /> {t('practice.saveAnswer')}
                 </button>
               )}
               {step === 'answer' && (
                 <button className="btn btn-primary" onClick={handleStartRecording} style={{ flex: 1 }}>
-                  <Mic size={16} /> Practice Speaking
+                  <Mic size={16} /> {t('practice.practiceSpeaking')}
                 </button>
               )}
               {step === 'feedback' && (
                 <button className="btn btn-primary" onClick={handleStartRecording} style={{ flex: 1 }}>
-                  <Mic size={16} /> Try Again
+                  <Mic size={16} /> {t('practice.tryAgain')}
                 </button>
               )}
             </div>
@@ -319,7 +324,7 @@ export default function PracticeMode() {
               <AudioWaveform isActive={isRecording} />
               {transcript && (
                 <div className="card" style={{ marginTop: 12, fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-                  <div className="caption" style={{ marginBottom: 4 }}>Live Transcript:</div>
+                  <div className="caption" style={{ marginBottom: 4 }}>{t('practice.liveTranscript')}</div>
                   {transcript}
                 </div>
               )}
@@ -332,7 +337,7 @@ export default function PracticeMode() {
                   {isRecording ? <MicOff size={28} /> : <Mic size={28} />}
                 </button>
                 <span className="mic-label">
-                  {isRecording ? 'Tap to stop' : 'Tap to record'}
+                  {isRecording ? t('practice.tapToStop') : t('practice.tapToRecord')}
                 </span>
               </div>
             </div>

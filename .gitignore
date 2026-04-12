@@ -13,3 +13,6 @@ venv/
 # 忽略 SQLite 临时文件
 *.db-shm
 *.db-wal
+
+# 忽略 macOS 系统文件
+.DS_Store

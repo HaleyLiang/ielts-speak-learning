@@ -1,0 +1,1592 @@
+[
+    {
+        "title": "Food",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{What is your favourite food?}"
+            },
+            {
+                "text": "{What kind of food did you like when you were young?}"
+            },
+            {
+                "text": "{Do you eat different foods at different times of the year?}"
+            },
+            {
+                "text": "{Has your favourite food changed since you were a child?}"
+            }
+        ]
+    },
+    {
+        "title": "Pets and Animals",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{What's your favourite animal? Why?}"
+            },
+            {
+                "text": "{Where do you prefer to keep your pet, indoors or outdoors? Have you ever had a pet before?}"
+            },
+            {
+                "text": "{What is the most popular animal in China?}"
+            }
+        ]
+    },
+    {
+        "title": "Sports team",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Have you ever been part of a sports team?}"
+            }
+        ]
+    },
+    {
+        "title": "Hobby",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you have any hobbies?}"
+            },
+            {
+                "text": "{Did you have any hobbies when you were a child?}"
+            },
+            {
+                "text": "{Do you have a hobby that you've had since childhood?}"
+            },
+            {
+                "text": "{Do you have the same hobbies as your family members?}"
+            }
+        ]
+    },
+    {
+        "title": "Morning time",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you like getting up early in the morning?}"
+            },
+            {
+                "text": "{What do you usually do in the morning?}"
+            },
+            {
+                "text": "{What did you do in the morning when you were little? Why?}"
+            },
+            {
+                "text": "{Are there any differences between what you do in the morning now and what you did in the past?}"
+            },
+            {
+                "text": "{Do you spend your mornings doing the same things on both weekends and weekdays? Why?}"
+            }
+        ]
+    },
+    {
+        "title": "Gifts",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Have you ever sent handmade gifts to others?}"
+            },
+            {
+                "text": "{Have you ever received a great gift?}"
+            },
+            {
+                "text": "{What do you consider when choosing a gift?}"
+            },
+            {
+                "text": "{Do you think you are good at choosing gifts?}"
+            },
+            {
+                "text": "{What gift have you received recently?}"
+            }
+        ]
+    },
+    {
+        "title": "Reading",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you like reading?}"
+            },
+            {
+                "text": "{Do you prefer to read on paper or on a screen?}"
+            },
+            {
+                "text": "{When do you need to read carefully, and when not?}"
+            }
+        ]
+    },
+    {
+        "title": "Walking",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you walk a lot?}"
+            },
+            {
+                "text": "{Did you often go outside to have a walk when you were a child?}"
+            },
+            {
+                "text": "{Why do people like to walk in parks?}"
+            },
+            {
+                "text": "{Where would you like to take a long walk if you had the chance?}"
+            },
+            {
+                "text": "{Where did you go for a walk lately?}"
+            }
+        ]
+    },
+    {
+        "title": "Typing",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you type on a desktop or laptop keyboard every day?}"
+            },
+            {
+                "text": "{When did you learn how to type on a keyboard?}"
+            },
+            {
+                "text": "{How do you improve your typing?}"
+            }
+        ]
+    },
+    {
+        "title": "Travelling",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you look out the window at the scenery when travelling by bus or car?}"
+            },
+            {
+                "text": "{Do you take photos of the scenery outside the car window?}"
+            },
+            {
+                "text": "{Do you prefer the mountains or the sea?}"
+            }
+        ]
+    },
+    {
+        "title": "Building",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you take photos of buildings?}"
+            },
+            {
+                "text": "{Is there a building that you would like to visit?}"
+            }
+        ]
+    },
+    {
+        "title": "Plants",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you keep plants at home?}"
+            },
+            {
+                "text": "{What plant did you grow when you were young?}"
+            },
+            {
+                "text": "{Do you know anything about growing a plant?}"
+            },
+            {
+                "text": "{Do Chinese people send plants as gifts?}"
+            }
+        ]
+    },
+    {
+        "title": "Public places",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Have you ever talked with someone you don’t know in public places?}"
+            },
+            {
+                "text": "{Do you wear headphones in public places?}"
+            },
+            {
+                "text": "{Would you like to see more public places near where you live?}"
+            },
+            {
+                "text": "{Do you often go to public places with your friends?}"
+            }
+        ]
+    },
+    {
+        "title": "Rules",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Are there any rules for students at your school?}"
+            },
+            {
+                "text": "{Do you think students would benefit more from more rules?}"
+            },
+            {
+                "text": "{Have you ever had a really dedicated teacher?}"
+            },
+            {
+                "text": "{Do you prefer to have more or fewer rules at school?}"
+            },
+            {
+                "text": "{Have you ever had a really strict teacher?}"
+            },
+            {
+                "text": "{Would you like to work as a teacher in a rule-free school?}"
+            }
+        ]
+    },
+    {
+        "title": "Shoes",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you like buying shoes? How often?}"
+            },
+            {
+                "text": "{Have you ever bought shoes online?}"
+            },
+            {
+                "text": "{How much money do you usually spend on shoes?}"
+            },
+            {
+                "text": "{Which do you prefer, fashionable shoes or comfortable shoes?}"
+            }
+        ]
+    },
+    {
+        "title": "Doing something well",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you have an experience when you did something well?}"
+            },
+            {
+                "text": "{Do you have an experience when your teacher thought you did a good job?}"
+            },
+            {
+                "text": "{Do you often tell your friends when they do something well?}"
+            }
+        ]
+    },
+    {
+        "title": "Crowded place",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Is the city where you live crowded?}"
+            },
+            {
+                "text": "{Is there a crowded place near where you live?}"
+            },
+            {
+                "text": "{Do you like crowded places?}"
+            },
+            {
+                "text": "{Do most people like crowded places?}"
+            },
+            {
+                "text": "{When was the last time you were in a crowded place?}"
+            }
+        ]
+    },
+    {
+        "title": "Going out",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you bring food or snacks with you when going out?}"
+            },
+            {
+                "text": "{Do you always take your mobile phone with you when going out?}"
+            },
+            {
+                "text": "{Do you often bring cash with you?}"
+            },
+            {
+                "text": "{How often do you use cash?}"
+            }
+        ]
+    },
+    {
+        "title": "Staying with old people",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Have you ever worked with old people?}"
+            },
+            {
+                "text": "{Are you happy to work with people who are older than you?}"
+            },
+            {
+                "text": "{What are the benefits of being friends with or working with old people?}"
+            },
+            {
+                "text": "{Do you enjoy spending time with old people?}"
+            }
+        ]
+    },
+    {
+        "title": "Growing vegetables/fruits",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Are you interested in growing vegetables and fruits?}"
+            },
+            {
+                "text": "{Is growing vegetables popular in your country?}"
+            },
+            {
+                "text": "{Do many people grow vegetables in your city?}"
+            },
+            {
+                "text": "{Do you think it's easy to grow vegetables?}"
+            },
+            {
+                "text": "{Should schools teach students how to grow vegetables?}"
+            }
+        ]
+    },
+    {
+        "title": "Chatting",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you like chatting with friends?}"
+            },
+            {
+                "text": "{What do you usually chat about with friends?}"
+            },
+            {
+                "text": "{Do you prefer to chat with a group of people or with only one friend?}"
+            },
+            {
+                "text": "{Do you prefer to communicate face-to-face or via social media?}"
+            },
+            {
+                "text": "{Do you argue with friends?}"
+            }
+        ]
+    },
+    {
+        "title": "Borrowing and lending",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Have you borrowed books from others?}"
+            },
+            {
+                "text": "{Have you ever borrowed money from others?}"
+            },
+            {
+                "text": "{Do you like to lend things to others?}"
+            },
+            {
+                "text": "{How do you feel when people don’t return things they borrowed from you?}"
+            },
+            {
+                "text": "{Do you mind if others borrow money from you?}"
+            }
+        ]
+    },
+    {
+        "title": "Advertisement",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Is there an advertisement that made an impression on you when you were a child?}"
+            },
+            {
+                "text": "{Do you see a lot of advertising on trains or other transport?}"
+            },
+            {
+                "text": "{Do you like advertisements?}"
+            },
+            {
+                "text": "{What kind of advertising do you like?}"
+            },
+            {
+                "text": "{Do you often see advertisements when you are on your phone or computer?}"
+            }
+        ]
+    },
+    {
+        "title": "Museum",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you think museums are important?}"
+            },
+            {
+                "text": "{Are there many museums in your hometown?}"
+            },
+            {
+                "text": "{Do you often visit a museum?}"
+            },
+            {
+                "text": "{When was the last time you visited a museum?}"
+            }
+        ]
+    },
+    {
+        "title": "Having a break",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{How often do you take a rest or a break?}"
+            },
+            {
+                "text": "{What do you usually do when you are resting?}"
+            },
+            {
+                "text": "{Do you take a nap when you are taking your rest?}"
+            },
+            {
+                "text": "{How do you feel after taking a nap?}"
+            }
+        ]
+    },
+    {
+        "title": "Sharing",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Did your parents teach you to share when you were a child?}"
+            },
+            {
+                "text": "{What kind of things do you like to share with others?}"
+            },
+            {
+                "text": "{What kind of things are not suitable for sharing?}"
+            },
+            {
+                "text": "{Do you have anything to share with others recently?}"
+            },
+            {
+                "text": "{Who is the first person you would like to share good news with?}"
+            },
+            {
+                "text": "{Do you prefer to share news with your friends or your parents?}"
+            }
+        ]
+    },
+    {
+        "title": "Work or studies",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{What subjects are you studying?}"
+            },
+            {
+                "text": "{Do you like your subject?}"
+            },
+            {
+                "text": "{Why did you choose to study that subject?}"
+            },
+            {
+                "text": "{Do you think that your subject is popular in your country?}"
+            },
+            {
+                "text": "{Do you have any plans for your studies in the next five years?}"
+            },
+            {
+                "text": "{What are the benefits of being your age?}"
+            },
+            {
+                "text": "{Do you want to change your major?}"
+            },
+            {
+                "text": "{Do you prefer to study in the mornings or in the afternoons?}"
+            },
+            {
+                "text": "{How much time do you spend on your studies each week?}"
+            },
+            {
+                "text": "{Are you looking forward to working?}"
+            },
+            {
+                "text": "{What technology do you use when you study?}"
+            },
+            {
+                "text": "{What changes would you like to see in your school?}"
+            },
+            {
+                "text": "{What work do you do?}"
+            },
+            {
+                "text": "{Why did you choose to do that type of work?}"
+            },
+            {
+                "text": "{Do you like your job?}"
+            },
+            {
+                "text": "{What requirements did you need to meet to get your current job?}"
+            },
+            {
+                "text": "{Do you have any plans for your work in the next five years?}"
+            },
+            {
+                "text": "{Do you want to change to another job?}"
+            },
+            {
+                "text": "{Do you miss being a student?}"
+            },
+            {
+                "text": "{What technology do you use at work?}"
+            },
+            {
+                "text": "{Who helps you the most? And how?}"
+            }
+        ]
+    },
+    {
+        "title": "Home/accommodation",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{What kind of house or apartment do you want to live in in the future?}"
+            },
+            {
+                "text": "{Are the transport facilities to your home very good?}"
+            },
+            {
+                "text": "{Do you prefer living in a house or an apartment?}"
+            },
+            {
+                "text": "{Please describe the room you live in.}"
+            },
+            {
+                "text": "{What part of your home do you like the most?}"
+            },
+            {
+                "text": "{How long have you lived there?}"
+            },
+            {
+                "text": "{Do you plan to live there for a long time?}"
+            },
+            {
+                "text": "{What’s the difference between where you are living now and where you have lived in the past?}"
+            },
+            {
+                "text": "{Can you describe the place where you live?}"
+            },
+            {
+                "text": "{What room does your family spend most of the time in?}"
+            },
+            {
+                "text": "{What makes you feel pleasant in your home?}"
+            },
+            {
+                "text": "{Do you live in an apartment or a house?}"
+            },
+            {
+                "text": "{Who do you live with?}"
+            },
+            {
+                "text": "{What do you usually do in your apartment?}"
+            }
+        ]
+    },
+    {
+        "title": "Hometown",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Where is your hometown?}"
+            },
+            {
+                "text": "{Is that a big city or a small place?}"
+            },
+            {
+                "text": "{Please describe your hometown a little.}"
+            },
+            {
+                "text": "{How long have you been living there?}"
+            },
+            {
+                "text": "{Do you think you will continue living there for a long time?}"
+            },
+            {
+                "text": "{Do you like your hometown?}"
+            },
+            {
+                "text": "{What do you like most about your hometown?}"
+            },
+            {
+                "text": "{Is there anything you dislike about it?}"
+            },
+            {
+                "text": "{What's your hometown famous for?}"
+            },
+            {
+                "text": "{Did you learn about the history of your hometown at school?}"
+            },
+            {
+                "text": "{Are there many young people in your hometown?}"
+            },
+            {
+                "text": "{Is your hometown a good place for young people to pursue their careers?}"
+            },
+            {
+                "text": "{Did you learn about the culture of your hometown in your childhood?}"
+            }
+        ]
+    },
+    {
+        "title": "The area you live in",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{Do you like the area that you live in?}"
+            },
+            {
+                "text": "{Where do you like to go in that area?}"
+            },
+            {
+                "text": "{Do you know any famous people in your area?}"
+            },
+            {
+                "text": "{What are some changes in the area recently?}"
+            },
+            {
+                "text": "{Do you know any of your neighbors?}"
+            },
+            {
+                "text": "{Are the people in your neighborhood nice and friendly?}"
+            },
+            {
+                "text": "{Do you live in a noisy or a quiet area?}"
+            }
+        ]
+    },
+    {
+        "title": "The city you live in",
+        "part": "part1",
+        "questions": [
+            {
+                "text": "{What city do you live in?}"
+            },
+            {
+                "text": "{Do you like this city? Why?}"
+            },
+            {
+                "text": "{How long have you lived in this city?}"
+            },
+            {
+                "text": "{Are there big changes in this city?}"
+            },
+            {
+                "text": "{Is this city your permanent residence?}"
+            },
+            {
+                "text": "{Are there people of different ages living in this city?}"
+            },
+            {
+                "text": "{Are the people friendly in the city?}"
+            },
+            {
+                "text": "{Is the city friendly to children and old people?}"
+            },
+            {
+                "text": "{What's the weather like where you live?}"
+            },
+            {
+                "text": "{Would you recommend your city to others?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe your perfect job",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe your perfect job. You should say: what it is, where you heard about it from, what you need to learn to get the job, and explain why you think it is your perfect job.}"
+            },
+            {
+                "text": "{What jobs do children want to do when they grow up?}"
+            },
+            {
+                "text": "{What should people consider when choosing jobs?}"
+            },
+            {
+                "text": "{Is salary the main reason people choose a certain job?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a famous person you would like to meet",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a famous person you would like to meet. You should say: who he/she is, how you knew him/her, how/where you would like to meet him/her, and explain why you would like to meet him/her.}"
+            },
+            {
+                "text": "{What are the advantages and disadvantages of being a famous child?}"
+            },
+            {
+                "text": "{What can today's children do to become famous?}"
+            },
+            {
+                "text": "{What can children do with their fame?}"
+            },
+            {
+                "text": "{Do people become famous because of their talent?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe an occasion when you were not allowed to use your mobile phone",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe an occasion when you were not allowed to use your mobile phone. You should say: when it was, where it was, why you were not allowed to use your mobile phone, and how you felt about it.}"
+            },
+            {
+                "text": "{How do young and old people use mobile phones differently?}"
+            },
+            {
+                "text": "{What positive and negative impact do mobile phones have on friendship?}"
+            },
+            {
+                "text": "{Is it a waste of time to take pictures with mobile phones?}"
+            },
+            {
+                "text": "{Do you think it is necessary to have laws on the use of mobile phones?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a time when you gave advice to others",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a time when you gave advice to others. You should say: when it was, to whom you gave the advice, what the advice was, and explain why you gave the advice.}"
+            },
+            {
+                "text": "{Should people prepare before giving advice?}"
+            },
+            {
+                "text": "{Is it good to ask advice from strangers online?}"
+            },
+            {
+                "text": "{What are the personalities of people whose job is to give advice to others?}"
+            },
+            {
+                "text": "{What are the problems if you ask too many people for advice?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a foreign country you would like to stay or work for a short period of time",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a foreign country you would like to stay or work for a short period of time. You should say: which country it is, where you got to know this country, what you will do there, and why you will stay or work there just for a short period of time.}"
+            },
+            {
+                "text": "{Why do people sometimes go to other cities or other countries to travel?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a piece of technology you would like to own",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a piece of technology (not a phone) that you would like to own. You should say: what it is, how much it costs, what you will use it for, and explain why you would like to own it.}"
+            },
+            {
+                "text": "{What are the differences between the technology of the past and that of today?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a person who makes plans a lot",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a person who makes plans a lot. You should say: who he/she is, how you knew him/her, what plans he/she makes, and explain how you feel about this person.}"
+            },
+            {
+                "text": "{Do you think it's important to plan ahead?}"
+            },
+            {
+                "text": "{Do you think children should plan their future careers?}"
+            },
+            {
+                "text": "{Should children ask their teachers or parents for advice when making plans?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a friend of yours who loves drawing/painting",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a friend of yours who loves drawing/painting. You should say: who he/she is, how you knew him/her, how often he/she draws/paints, and explain why you think he/she loves drawing/painting.}"
+            },
+            {
+                "text": "{What is the right age for a child to learn drawing?}"
+            },
+            {
+                "text": "{Why do most children draw more often than adults do?}"
+            },
+            {
+                "text": "{Why do some people visit galleries or museums instead of viewing artworks online?}"
+            },
+            {
+                "text": "{Do you think galleries and museums should be free of charge?}"
+            },
+            {
+                "text": "{How do artworks inspire people?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a program or app",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a program or app on your computer or phone. You should say: what it is, when/how you use it, where you found it, and explain how you feel about it.}"
+            },
+            {
+                "text": "{What are the differences between old and young people when using apps?}"
+            },
+            {
+                "text": "{Why do some people not like using apps?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a story you have read recently",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a story (e.g. a fairy tale, etc.) you have read recently. You should say: what it is about, when you read it, whether you liked it, and explain what you have learned from it.}"
+            },
+            {
+                "text": "{Why do most children like listening to stories before bedtime?}"
+            },
+            {
+                "text": "{Is a good storyline important for a movie?}"
+            },
+            {
+                "text": "{Do you think films with many celebrities are more likely to be popular?}"
+            },
+            {
+                "text": "{What films are popular in China right now?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe an occasion when many people were smiling",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe an occasion when many people were smiling. You should say: when it happened, who you were with, what happened, and explain why most people were smiling.}"
+            },
+            {
+                "text": "{Do you think people who like to smile are more friendly?}"
+            },
+            {
+                "text": "{Why do most people smile in photographs?}"
+            },
+            {
+                "text": "{Do women smile more than men?}"
+            },
+            {
+                "text": "{Do people smile more when they are younger or older?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a time when you felt proud of a family member",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a time when you felt proud of a family member. You should say: when it happened, who the person is, what the person did, and explain why you felt proud of him/her.}"
+            },
+            {
+                "text": "{When would parents feel proud of their children?}"
+            },
+            {
+                "text": "{Should parents reward children? Why and how?}"
+            },
+            {
+                "text": "{Is it good to reward children too often?}"
+            },
+            {
+                "text": "{On what occasions would adults be proud of themselves?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe something important kept in your family",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe something important that has been kept in your family for a long time. You should say: what it is, when your family had it, how your family got it, and explain why it is important to your family.}"
+            },
+            {
+                "text": "{What things do families keep for a long time?}"
+            },
+            {
+                "text": "{What's the difference between things valued by people in the past and today?}"
+            },
+            {
+                "text": "{What kinds of things are kept in museums?}"
+            },
+            {
+                "text": "{What's the influence of technology on museums?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a shopping mall",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a shopping mall. You should say: what its name is, where it is, how often you visit it, and what you usually buy at the mall.}"
+            },
+            {
+                "text": "{Why do people buy things they don't need?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a bicycle/motorcycle/car trip",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a bicycle/motorcycle/car trip you would like to go. You should say: who you would like to go with, where you would like to go, when you would like to go, and explain why you would like to go by bicycle/motorcycle/car.}"
+            },
+            {
+                "text": "{Which form of vehicle is more popular in your country, bikes, cars or motorcycles?}"
+            },
+            {
+                "text": "{Do you think air pollution comes mostly from mobile vehicles?}"
+            },
+            {
+                "text": "{Do you think people need to change the way of transportation drastically to protect the environment?}"
+            },
+            {
+                "text": "{How are the transportation systems in urban areas and rural areas different?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a person who encouraged you to protect nature",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a person who encouraged you to protect the nature. You should say: who he/she is, how he/she encouraged you, what he/she encouraged you to do, and explain how you feel about this person.}"
+            },
+            {
+                "text": "{How can parents teach their children to protect nature?}"
+            },
+            {
+                "text": "{Should schools teach children to get close to nature?}"
+            },
+            {
+                "text": "{Do you think there should be laws to protect nature?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a person who solved a problem in a smart way",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a person who solved a problem in a smart way. You should say: who this person is, what the problem was, how he/she solved it, and explain why you think he/she did it in a smart way.}"
+            },
+            {
+                "text": "{Do you think children are born smart or they learn to become smart?}"
+            },
+            {
+                "text": "{How do children become smart at school?}"
+            },
+            {
+                "text": "{Why are some people well-rounded and others only good at one thing?}"
+            },
+            {
+                "text": "{Why does modern society need talents of all kinds?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a friend who learned a skill from someone",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe one of your friends who learned a skill from someone (not a teacher). You should say: who he/she is, what skill he/she learned, how he/she learned, and explain whether it would be easier to learn from a teacher.}"
+            },
+            {
+                "text": "{Is it necessary to keep learning after graduating from school?}"
+            },
+            {
+                "text": "{Should teachers make learning in their classes fun?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a music event that you didn’t enjoy",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a music event that you didn’t enjoy. You should say: what it was, who you went with, why you decided to go there, and explain why you didn’t enjoy it.}"
+            },
+            {
+                "text": "{What kind of music events do people like today?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a wild animal you want to learn more about",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a wild animal that you want to learn more about. You should say: what it is, when/where you saw it, why you want to learn more about it, and explain what you want to learn more about it.}"
+            },
+            {
+                "text": "{Why should we protect wild animals?}"
+            },
+            {
+                "text": "{Why are some people more willing to protect wild animals than others?}"
+            },
+            {
+                "text": "{Do you think it's important to take children to the zoo to see animals?}"
+            },
+            {
+                "text": "{Should people educate children to protect wild animals?}"
+            },
+            {
+                "text": "{Is it more important to protect wild animals or the environment?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a friend who is good at music/singing",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a friend of yours who is good at music/singing. You should say: who he/she is, when/where you listen to his/her music/singing, what kind of music/songs he/she is good at, and explain how you feel when listening to his music/singing.}"
+            },
+            {
+                "text": "{What kind of music is popular in your country?}"
+            },
+            {
+                "text": "{What are the differences between young people's and old people's preferences in music?}"
+            },
+            {
+                "text": "{What are the benefits of children learning a musical instrument?}"
+            },
+            {
+                "text": "{Do you think the government should invest more money in concerts?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a good friend who is important to you",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a good friend who is important to you. You should say: who he/she is, how/where you got to know him/her, how long you have known each other, and explain why he/she is important to you.}"
+            },
+            {
+                "text": "{How do children make friends at school?}"
+            },
+            {
+                "text": "{Do you think it is better for children to have a few close friends or many casual friends?}"
+            },
+            {
+                "text": "{What are the differences between friends made inside and outside the work place?}"
+            },
+            {
+                "text": "{Do you think it's possible for bosses and their employees to become friends?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe an occasion when you lost your way",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe an occasion when you lost your way. You should say: where you were, what happened, how you felt, and explain how you found your way.}"
+            },
+            {
+                "text": "{Why do some people get lost more easily than others?}"
+            },
+            {
+                "text": "{Do you think it is important to be able to read a map?}"
+            },
+            {
+                "text": "{Is a paper map still necessary?}"
+            },
+            {
+                "text": "{How do people react when they get lost?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a person who enjoys working for a family business",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a person you know who enjoys working for a family business (e.g. a shop, etc.). You should say: who he/she is, what the business is, what his/her job is, and explain why he/she enjoys working there.}"
+            },
+            {
+                "text": "{Would you like to start a family business?}"
+            },
+            {
+                "text": "{Why do some people choose to start their own company?}"
+            },
+            {
+                "text": "{What are the advantages and disadvantages of family businesses?}"
+            },
+            {
+                "text": "{What makes a successful family business?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a natural talent you want to improve",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a natural talent (sports, music, etc.) you want to improve. You should say: what it is, when you discovered it, how you want to improve it, and how you feel about it.}"
+            },
+            {
+                "text": "{Do you think artists with talents should focus on their talents?}"
+            },
+            {
+                "text": "{Why do people like to watch talent shows?}"
+            },
+            {
+                "text": "{Do you think it's important to develop children's talents?}"
+            },
+            {
+                "text": "{Why do some people like to show their talents online?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a great dinner with friend or family",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a great dinner you and your friend or family members enjoyed. You should say: what you had, who you had the dinner with, what you talked about during the dinner, and explain why you enjoyed it.}"
+            },
+            {
+                "text": "{Do people prefer to eat out at restaurants or eat at home during the Spring Festival?}"
+            },
+            {
+                "text": "{Why do people like to have meals together during important festivals?}"
+            },
+            {
+                "text": "{Is it a hassle to prepare a meal at home?}"
+            },
+            {
+                "text": "{What do people often talk about during meals?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a long journey you would like to take again",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a long journey you had and would like to take again. You should say: when/where you went, who you had the journey with, why you had the journey, and explain why you would like to have it again.}"
+            },
+            {
+                "text": "{Do you think it is a good choice to travel by plane?}"
+            },
+            {
+                "text": "{What are the differences between group travelling and travelling alone?}"
+            },
+            {
+                "text": "{What do we need to prepare for a long journey?}"
+            },
+            {
+                "text": "{Why do some people prefer to travel abroad?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe an interesting traditional story",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe an interesting traditional story. You should say: what the story is about, when/how you knew it, who told you the story, and explain how you felt when you first heard it.}"
+            },
+            {
+                "text": "{What kind of stories do children like?}"
+            },
+            {
+                "text": "{What are the benefits of bedtime stories for children?}"
+            },
+            {
+                "text": "{What can children learn from stories?}"
+            },
+            {
+                "text": "{Do all stories for children have happy endings?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a time when the electricity suddenly went off",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a time when the electricity suddenly went off. You should say: when/where it happened, how long it lasted, what you did during that time, and explain how you felt about it.}"
+            },
+            {
+                "text": "{Which is better, electric bicycles or ordinary bicycles?}"
+            },
+            {
+                "text": "{Which is better, electric cars or petrol cars?}"
+            },
+            {
+                "text": "{How did people manage to live without electricity in the ancient world?}"
+            },
+            {
+                "text": "{Do people use more electricity now than before?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a time when someone apologized to you",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a time when someone apologized to you. You should say: when it was, who this person is, why he or she apologized to you, and how you felt about it.}"
+            },
+            {
+                "text": "{Do you think people should apologize for anything wrong they do?}"
+            },
+            {
+                "text": "{On what occasion do people usually apologize to others?}"
+            },
+            {
+                "text": "{Why do some people refuse to say 'sorry' to others?}"
+            },
+            {
+                "text": "{Are women better than men at recognizing emotions?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a good habit your friend has",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a good habit your friend has and you want to develop. You should say: who your friend is, what habit he/she has, when you noticed this habit, and explain why you want to develop this habit.}"
+            },
+            {
+                "text": "{What habits should children have?}"
+            },
+            {
+                "text": "{What should parents do to teach their children good habits?}"
+            },
+            {
+                "text": "{How do we develop bad habits?}"
+            },
+            {
+                "text": "{What can we do to get rid of bad habits?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe an exciting activity you tried for the first time",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe an exciting activity you have tried for the first time. You should say: what it is, when/where you did it, why you thought it was exciting, and explain how you felt about it.}"
+            },
+            {
+                "text": "{Why are some people unwilling to try new things?}"
+            },
+            {
+                "text": "{Why are some people keen on doing dangerous activities?}"
+            },
+            {
+                "text": "{Do you think that children adapt to new things more easily than adults?}"
+            },
+            {
+                "text": "{What are the benefits of trying new things?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a creative person you admire",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a creative person (e.g. an artist, a musician, an architect, etc.) you admire. You should say: who he/she is, how you knew him/her, what his/her greatest achievement is, and explain why you think he/she is creative.}"
+            },
+            {
+                "text": "{How do artists acquire inspiration?}"
+            },
+            {
+                "text": "{Do you think pictures and videos in news reports are important?}"
+            },
+            {
+                "text": "{What can we do to help children keep creative?}"
+            },
+            {
+                "text": "{What kind of jobs require creativity?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe an important old thing your family has kept",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe an important old thing that your family has kept for a long time. You should say: what it is, how/when your family first got this thing, how long your family has kept it, and explain why this thing is important to your family.}"
+            },
+            {
+                "text": "{Why do people keep old things?}"
+            },
+            {
+                "text": "{What are the differences between the things old people keep and those young people keep?}"
+            },
+            {
+                "text": "{What can we see in a museum?}"
+            },
+            {
+                "text": "{What can we learn from a museum?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe the time when you first talked in a foreign language",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe the time when you first talked in a foreign language. You should say: where you were, who you were with, what you talked about, and explain how you felt about it.}"
+            },
+            {
+                "text": "{At what age should children start learning a foreign language?}"
+            },
+            {
+                "text": "{Which skill is more important, speaking or writing?}"
+            },
+            {
+                "text": "{Do you think minority languages will disappear?}"
+            },
+            {
+                "text": "{Does learning a foreign language help in finding a job?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a time you saw something interesting on social media",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a time you saw something interesting on social media. You should say: when it was, where you saw it, what you saw, and explain why you think it was interesting.}"
+            },
+            {
+                "text": "{Why do people like to use social media?}"
+            },
+            {
+                "text": "{What are the advantages and disadvantages of using social media?}"
+            },
+            {
+                "text": "{Do you think people spend too much time on social media?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a time when you broke something",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a time when you broke something. You should say: what it was, when/where that happened, how you broke it, and explain what you did after that.}"
+            },
+            {
+                "text": "{What kind of things are more likely to be broken by people at home?}"
+            },
+            {
+                "text": "{What kind of people like to fix things by themselves?}"
+            },
+            {
+                "text": "{Do you think handmade clothes are more valuable?}"
+            },
+            {
+                "text": "{Is the older generation better at fixing things?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe an area/subject of science you are interested in",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe an area/subject of science (biology, robotics, etc.) that you are interested in and would like to learn more about. You should say: which area/subject it is, when and where you came to know this area/subject, how you get information about it, and explain why you are interested in it.}"
+            },
+            {
+                "text": "{Why do some children not like learning science at school?}"
+            },
+            {
+                "text": "{Is it important to study science at school?}"
+            },
+            {
+                "text": "{Should people continue to study science after graduating from school?}"
+            },
+            {
+                "text": "{Should scientists explain the research process to the public?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a book you read that you found useful",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a book you read that you found useful. You should say: what it is, when you read it, why you think it is useful, and explain how you felt about it.}"
+            },
+            {
+                "text": "{What are the types of books that young people like to read?}"
+            },
+            {
+                "text": "{Do you think old people spend more time reading than young people?}"
+            },
+            {
+                "text": "{Which one is better, paper books or e-books?}"
+            },
+            {
+                "text": "{What should we do to prevent modern libraries from closing down?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a successful sportsperson you admire",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a successful sportsperson you admire. You should say: who he/she is, what you know about him/her, what he/she is like in real life, what achievement he/she has made, and explain why you admire him/her.}"
+            },
+            {
+                "text": "{Should students have physical education and do sports at school?}"
+            },
+            {
+                "text": "{What qualities should an athlete have?}"
+            },
+            {
+                "text": "{Is talent important in sports?}"
+            },
+            {
+                "text": "{What is the most popular sport in your country?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a toy you liked in your childhood",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a toy you liked in your childhood. You should say: what kind of toy it is, when you received it, how you played it, and how you felt about it.}"
+            },
+            {
+                "text": "{How do advertisements influence children?}"
+            },
+            {
+                "text": "{Should advertising aimed at kids be prohibited?}"
+            },
+            {
+                "text": "{Do you think parents should buy more toys for their kids or spend more time with them?}"
+            },
+            {
+                "text": "{What are the advantages and disadvantages of modern toys?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe an important decision made with help of others",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe an important decision made with the help of other people. You should say: what the decision was, why you made the decision, who helped you make the decision, and how you felt about it.}"
+            },
+            {
+                "text": "{What kind of decisions do you think are meaningful?}"
+            },
+            {
+                "text": "{What important decisions should be made by teenagers themselves?}"
+            },
+            {
+                "text": "{Why are some people unwilling to make quick decisions?}"
+            },
+            {
+                "text": "{Why do some people like to ask others for advice?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a time when you waited for something special",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a time when you waited for something special that would happen. You should say: what you waited for, where you waited, why it was special, and explain how you felt while you were waiting.}"
+            },
+            {
+                "text": "{On what occasions do people usually need to wait?}"
+            },
+            {
+                "text": "{Who behave better when waiting, children or adults?}"
+            },
+            {
+                "text": "{Compared to the past, are people less patient now? Why?}"
+            },
+            {
+                "text": "{Where do children learn to be patient, at home or at school?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a time when you received good service",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a time when you received good service in a shop/store. You should say: where the shop is, when you went to the shop, what service you received from the staff, and explain how you felt about the service.}"
+            },
+            {
+                "text": "{Why are shopping malls so popular in China?}"
+            },
+            {
+                "text": "{What are the advantages and disadvantages of shopping in small shops?}"
+            },
+            {
+                "text": "{What are the differences between online shopping and in-store shopping?}"
+            },
+            {
+                "text": "{Can consumption drive economic growth?}"
+            }
+        ]
+    },
+    {
+        "title": "Describe a natural place",
+        "part": "part2_3",
+        "questions": [
+            {
+                "text": "{Describe a natural place (e.g. parks, mountains, etc.). You should say: where this place is, how you knew this place, what it is like, and explain why you like to visit it.}"
+            },
+            {
+                "text": "{What kind of people like to visit natural places?}"
+            },
+            {
+                "text": "{What are the differences between a natural place and a city?}"
+            },
+            {
+                "text": "{Do you think that going to the park is the only way to get close to nature?}"
+            },
+            {
+                "text": "{What can people gain from going to natural places?}"
+            }
+        ]
+    }
+]
