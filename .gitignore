@@ -1,0 +1,15 @@
+# 忽略所有目录下的 __pycache__ 文件夹
+**/__pycache__/
+
+# 忽略所有的编译后的字节码文件
+*.pyc
+*.pyo
+*.pyd
+
+# 如果你使用的是 uv 或 venv，也建议忽略环境目录
+.venv/
+venv/
+
+# 忽略 SQLite 临时文件
+*.db-shm
+*.db-wal

@@ -44,12 +44,12 @@ cd ielts-speak-learning
 cd backend
 
 # (推荐) 创建 Python 虚拟环境
-python3 -m venv venv
-source venv/bin/activate        # macOS / Linux
+uv venv --python 3.12
+source .venv/bin/activate       # macOS / Linux
 # venv\Scripts\activate         # Windows
 
 # 安装依赖
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 
 # 启动开发服务器 (端口 8000)
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
