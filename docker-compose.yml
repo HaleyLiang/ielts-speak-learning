@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: ielts-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./backend/data:/app/data
+    restart: always
+
+# 运行指令：
+# 1. 在 .env 文件中设置 OPENAI_API_KEY
+# 2. 运行 docker-compose up -d

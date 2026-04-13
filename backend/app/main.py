@@ -30,14 +30,16 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS middleware - allow frontend dev server
+# CORS middleware
+# In production, Apache reverse proxy often makes this unnecessary if they are on same origin.
+# But adding explicit origins is safer.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",  # Vite dev server
+        "http://localhost:5173",
         "http://localhost:3000",
         "http://127.0.0.1:5173",
-        "http://127.0.0.1:3000",
+        "*",  # TODO: 部署后可修改为具体的域名以增强安全性
     ],
     allow_credentials=True,
     allow_methods=["*"],
