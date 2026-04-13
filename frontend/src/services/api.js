@@ -95,6 +95,10 @@ export async function compareAnswer(data) {
   return request('/practice/compare', { method: 'POST', body: data });
 }
 
+export async function polishAnswer(data) {
+  return request('/practice/polish', { method: 'POST', body: data });
+}
+
 // ─── Mock Exam ──────────────────────────────────────────────────
 
 export async function startExam(data) {

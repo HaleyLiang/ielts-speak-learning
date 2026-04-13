@@ -1,16 +1,18 @@
 /**
  * QuestionBank - Manage IELTS speaking topics and questions
  * Accordion layout grouped by Part 1 / Part 2&3
+ * Clicking a question navigates to the QuestionDetail page
  */
 
 import { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronRight, Plus, Trash2, Upload, Check, BookOpen, FileText } from 'lucide-react';
-import useStore from '../stores/useStore';
 import useI18n from '../i18n/useI18n';
-import { fetchTopics, fetchTopic, createTopic, deleteTopic, addQuestion, importQuestions } from '../services/api';
+import { fetchTopics, fetchTopic, createTopic, deleteTopic, importQuestions } from '../services/api';
 
 export default function QuestionBank() {
   const { t } = useI18n();
+  const navigate = useNavigate();
   const [topics, setTopics] = useState([]);
   const [expandedId, setExpandedId] = useState(null);
   const [expandedTopic, setExpandedTopic] = useState(null);
@@ -102,6 +104,10 @@ export default function QuestionBank() {
     }
   };
 
+  const handleQuestionClick = (topicId, questionId) => {
+    navigate(`/bank/${topicId}/${questionId}`);
+  };
+
   const part1Topics = topics.filter(t => t.part === 'part1');
   const part2Topics = topics.filter(t => t.part === 'part2_3');
 
@@ -147,6 +153,7 @@ export default function QuestionBank() {
                   expandedData={expandedId === topic.id ? expandedTopic : null}
                   onToggle={() => handleExpand(topic.id)}
                   onDelete={(e) => handleDeleteTopic(topic.id, e)}
+                  onQuestionClick={(qId) => handleQuestionClick(topic.id, qId)}
                   t={t}
                 />
               ))}
@@ -168,6 +175,7 @@ export default function QuestionBank() {
                   expandedData={expandedId === topic.id ? expandedTopic : null}
                   onToggle={() => handleExpand(topic.id)}
                   onDelete={(e) => handleDeleteTopic(topic.id, e)}
+                  onQuestionClick={(qId) => handleQuestionClick(topic.id, qId)}
                   t={t}
                 />
               ))}
@@ -266,7 +274,7 @@ export default function QuestionBank() {
   );
 }
 
-function TopicAccordion({ topic, isExpanded, expandedData, onToggle, onDelete, t }) {
+function TopicAccordion({ topic, isExpanded, expandedData, onToggle, onDelete, onQuestionClick, t }) {
   const progress = topic.total_count > 0 ? (topic.prepared_count / topic.total_count) * 100 : 0;
 
   return (
@@ -298,15 +306,23 @@ function TopicAccordion({ topic, isExpanded, expandedData, onToggle, onDelete, t
           </div>
 
           {expandedData?.questions?.map((q, i) => (
-            <div key={q.id} className="question-item">
+            <div
+              key={q.id}
+              className="question-item"
+              onClick={() => onQuestionClick(q.id)}
+              style={{ cursor: 'pointer' }}
+              role="button"
+              tabIndex={0}
+            >
               <div className="question-number">{i + 1}</div>
               <div className="question-text">{q.text}</div>
-              <div className="question-status">
+              <div className="question-status" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                 {q.personal_answer ? (
                   <Check size={16} color="var(--success)" />
                 ) : (
                   <FileText size={16} color="var(--text-muted)" />
                 )}
+                <ChevronRight size={14} color="var(--text-muted)" />
               </div>
             </div>
           ))}

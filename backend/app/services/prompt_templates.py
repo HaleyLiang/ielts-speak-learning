@@ -109,3 +109,30 @@ def get_scoring_prompt(full_transcript: str, target_score: float) -> str:
     {{"original": "考生用的表达", "suggested": "更好的表达", "reason": "提升理由"}}
   ]
 }}"""
+
+
+def get_polish_prompt(question: str, answer_text: str, target_score: float) -> str:
+    """Generate the prompt for polishing/refining an existing answer."""
+    return f"""你是一位资深的雅思口语前考官。学生已经写了一份口语答案，需要你帮忙润色和提升。
+
+问题: {question}
+学生的原始答案: {answer_text}
+目标分数: {target_score}
+
+请对学生的答案进行润色，使其更符合雅思口语 {target_score} 分的标准。
+
+润色要求:
+* 保留学生的核心思路和个人经历，不要完全重写
+* 词汇难度和语法复杂度严格锚定 {target_score} 分水平
+* 提高连贯性和逻辑性，添加合适的连接词
+* 保持自然的口语交流感，避免书面化
+* 修正语法错误
+* 如果原答案已经很好，可以微调即可
+
+请按以下JSON格式输出，不要包含markdown代码块标记：
+{{
+  "polished_text": "润色后的英文答案",
+  "key_phrases": ["提分重点词汇/短语1", "提分重点词汇/短语2", "提分重点词汇/短语3"],
+  "changes_summary": "简要说明做了哪些修改（用中文）"
+}}"""
+

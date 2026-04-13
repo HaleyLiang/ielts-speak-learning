@@ -123,6 +123,21 @@ class CompareAnswerResponse(BaseModel):
     suggestions: List[str] = []
 
 
+class PolishAnswerRequest(BaseModel):
+    question_text: str
+    answer_text: str
+    target_score: float = 6.5
+    api_key: str
+    model: str = "gpt-4o-mini"
+    base_url: Optional[str] = None
+
+
+class PolishAnswerResponse(BaseModel):
+    polished_text: str
+    key_phrases: List[str] = []
+    changes_summary: str = ""
+
+
 # ─── Mock Exam Schemas ───────────────────────────────────────────
 
 class ExamStartRequest(BaseModel):

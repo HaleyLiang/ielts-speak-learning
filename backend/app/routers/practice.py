@@ -9,10 +9,11 @@ from ..database.db import get_db
 from ..database import crud
 from ..models.schemas import (
     PracticeDrawResponse, GenerateAnswerRequest, GenerateAnswerResponse,
-    CompareAnswerRequest, CompareAnswerResponse
+    CompareAnswerRequest, CompareAnswerResponse,
+    PolishAnswerRequest, PolishAnswerResponse
 )
 from ..services.llm_service import call_llm_json
-from ..services.prompt_templates import get_practice_prompt, get_compare_prompt
+from ..services.prompt_templates import get_practice_prompt, get_compare_prompt, get_polish_prompt
 
 router = APIRouter(prefix="/api/practice", tags=["practice"])
 
@@ -89,6 +90,35 @@ async def compare_answer(request: CompareAnswerRequest):
             fluency_score=result.get("fluency_score", 0),
             vocabulary_score=result.get("vocabulary_score", 0),
             suggestions=result.get("suggestions", []),
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/polish", response_model=PolishAnswerResponse)
+async def polish_answer(request: PolishAnswerRequest):
+    """Use AI to polish/refine an existing answer."""
+    if not request.api_key:
+        raise HTTPException(status_code=400, detail="API key is required")
+
+    prompt = get_polish_prompt(
+        question=request.question_text,
+        answer_text=request.answer_text,
+        target_score=request.target_score,
+    )
+
+    try:
+        result = await call_llm_json(
+            prompt=prompt,
+            api_key=request.api_key,
+            model=request.model,
+            base_url=request.base_url,
+        )
+
+        return PolishAnswerResponse(
+            polished_text=result.get("polished_text", ""),
+            key_phrases=result.get("key_phrases", []),
+            changes_summary=result.get("changes_summary", ""),
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
