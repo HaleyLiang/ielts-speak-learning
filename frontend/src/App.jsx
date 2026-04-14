@@ -9,10 +9,18 @@ import QuestionBank from './pages/QuestionBank';
 import QuestionDetail from './pages/QuestionDetail';
 import MockExam from './pages/MockExam';
 import Settings from './pages/Settings';
+import { useEffect } from 'react';
 
 function AppContent() {
   const location = useLocation();
   const hideNav = location.pathname.startsWith('/bank/');
+
+  useEffect(() => {
+    // Force iOS PWA to recalculate dynamic viewport height and snap fixed bottom nav
+    const fixViewport = () => window.scrollTo(0, 0);
+    fixViewport();
+    setTimeout(fixViewport, 100);
+  }, []);
 
   return (
     <div className="app-layout">

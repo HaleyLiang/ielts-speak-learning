@@ -10,6 +10,7 @@ import useI18n from '../i18n/useI18n';
 import { drawRandomTopics, generateAnswer, compareAnswer, saveAnswer } from '../services/api';
 import { ChatBubble, TypingIndicator } from '../components/ChatBubble';
 import AudioWaveform from '../components/AudioWaveform';
+import SpeakButton from '../components/SpeakButton';
 import { startListening, stopListening } from '../services/speech';
 
 export default function PracticeMode() {
@@ -340,6 +341,12 @@ export default function PracticeMode() {
           {/* Answer Actions: Save + Practice */}
           {(step === 'answer' || step === 'feedback') && generatedAnswer && (
             <div style={{ display: 'flex', gap: 8, marginTop: 16, flexWrap: 'wrap' }}>
+              <SpeakButton 
+                text={generatedAnswer.answer_text} 
+                className="btn-secondary" 
+                showText={true} 
+                style={{ flex: 1 }}
+              />
               {!isSaved && (
                 <button className="btn btn-secondary" onClick={handleSave}>
                   <Save size={16} /> {t('practice.saveAnswer')}

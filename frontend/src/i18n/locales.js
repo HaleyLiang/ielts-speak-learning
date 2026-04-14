@@ -189,7 +189,8 @@ export const locales = {
       delete: '删除',
       close: '关闭',
       prepTime: '准备时间',
-      speakingTime: '作答时间',
+      speak: '语音朗读',
+      stopSpeak: '停止朗读',
     },
   },
 
@@ -366,7 +367,8 @@ export const locales = {
       delete: 'Delete',
       close: 'Close',
       prepTime: 'PREP TIME',
-      speakingTime: 'SPEAKING',
+      speak: 'Read Aloud',
+      stopSpeak: 'Stop Reading',
     },
   },
 };

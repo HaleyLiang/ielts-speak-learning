@@ -8,6 +8,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Save, Sparkles } from 'lucide-react';
 import useStore from '../stores/useStore';
 import useI18n from '../i18n/useI18n';
+import SpeakButton from '../components/SpeakButton';
 import { fetchTopic, saveAnswer, polishAnswer } from '../services/api';
 
 export default function QuestionDetail() {
@@ -118,16 +119,18 @@ export default function QuestionDetail() {
 
   return (
     <div className="page-container" style={{ paddingBottom: 100 }}>
-      {/* Back Button */}
-      <button
-        className="btn btn-ghost"
-        onClick={() => navigate('/bank')}
-        style={{ marginBottom: 12, padding: '6px 0', gap: 4 }}
-        id="back-to-bank-btn"
-      >
-        <ArrowLeft size={18} />
-        <span style={{ fontSize: '0.875rem' }}>{topicTitle || t('bank.title')}</span>
-      </button>
+      {/* Back Button Header */}
+      <div className="page-header" style={{ paddingBottom: 12, paddingTop: 4 }}>
+        <button
+          className="btn btn-ghost"
+          onClick={() => navigate('/bank')}
+          style={{ padding: '6px 0', gap: 4 }}
+          id="back-to-bank-btn"
+        >
+          <ArrowLeft size={18} />
+          <span style={{ fontSize: '0.875rem' }}>{topicTitle || t('bank.title')}</span>
+        </button>
+      </div>
 
       {/* Question Text */}
       <div className="card" style={{ marginBottom: 20, background: 'var(--bg-secondary)', border: '1px solid var(--border)' }}>
@@ -137,16 +140,25 @@ export default function QuestionDetail() {
 
       {/* Answer Editor */}
       <div className="input-group" style={{ marginBottom: 16 }}>
-        <label className="input-label" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-          {t('bank.myAnswer')}
-          {question.personal_answer && (
-            <span className="badge badge-success" style={{ fontSize: '0.6875rem' }}>
-              {question.personal_answer.updated_at
-                ? `${t('common.save')} ${new Date(question.personal_answer.updated_at).toLocaleDateString()}`
-                : '✓'}
-            </span>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+          <label className="input-label" style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 0 }}>
+            {t('bank.myAnswer')}
+            {question.personal_answer && (
+              <span className="badge badge-success" style={{ fontSize: '0.6875rem' }}>
+                {question.personal_answer.updated_at
+                  ? `${t('common.save')} ${new Date(question.personal_answer.updated_at).toLocaleDateString()}`
+                  : '✓'}
+              </span>
+            )}
+          </label>
+          {answerText.trim() && (
+            <SpeakButton 
+              text={answerText} 
+              className="btn-ghost" 
+              style={{ padding: '6px', minHeight: 'unset', height: 'auto' }} 
+            />
           )}
-        </label>
+        </div>
         <textarea
           className="input textarea"
           placeholder={t('bank.answerPlaceholder')}

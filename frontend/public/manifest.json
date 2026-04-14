@@ -1,0 +1,17 @@
+{
+  "name": "IELTS Speaking Practice",
+  "short_name": "IELTS Speaking",
+  "description": "AI-powered IELTS speaking practice with custom question banks and mock exams.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060B18",
+  "theme_color": "#060B18",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
