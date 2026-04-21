@@ -171,7 +171,7 @@ export default function Settings() {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}>
-                  √
+                  {model === m && <Check size={14} color="white" />}
                 </div>
               </button>
             );
