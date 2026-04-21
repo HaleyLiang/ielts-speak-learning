@@ -1,11 +1,11 @@
 /**
  * QuestionDetail - Full page for viewing/editing a question's answer
- * Supports editing the saved answer and AI polish
+ * Supports editing the saved answer, AI polish, and prev/next question navigation
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Save, Sparkles } from 'lucide-react';
+import { ArrowLeft, Save, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import useStore from '../stores/useStore';
 import useI18n from '../i18n/useI18n';
 import SpeakButton from '../components/SpeakButton';
@@ -18,6 +18,7 @@ export default function QuestionDetail() {
   const { apiKey, model, baseUrl, targetScore } = useStore();
 
   const [question, setQuestion] = useState(null);
+  const [allQuestions, setAllQuestions] = useState([]);
   const [topicTitle, setTopicTitle] = useState('');
   const [answerText, setAnswerText] = useState('');
   const [loading, setLoading] = useState(true);
@@ -32,6 +33,7 @@ export default function QuestionDetail() {
         setLoading(true);
         const topic = await fetchTopic(Number(topicId));
         setTopicTitle(topic.title);
+        setAllQuestions(topic.questions || []);
         const q = topic.questions.find(q => q.id === Number(questionId));
         if (q) {
           setQuestion(q);
@@ -44,6 +46,23 @@ export default function QuestionDetail() {
       }
     })();
   }, [topicId, questionId]);
+
+  // Reset polish result and status when navigating to a different question
+  useEffect(() => {
+    setPolishResult(null);
+    setStatusMsg('');
+  }, [questionId]);
+
+  const currentIndex = allQuestions.findIndex(q => q.id === Number(questionId));
+  const hasPrev = currentIndex > 0;
+  const hasNext = currentIndex < allQuestions.length - 1;
+
+  const goToQuestion = useCallback((direction) => {
+    const targetIdx = currentIndex + direction;
+    if (targetIdx < 0 || targetIdx >= allQuestions.length) return;
+    const targetQ = allQuestions[targetIdx];
+    navigate(`/bank/${topicId}/${targetQ.id}`, { replace: true });
+  }, [currentIndex, allQuestions, topicId, navigate]);
 
   const handleSaveAnswer = async () => {
     if (!answerText.trim()) return;
@@ -61,6 +80,7 @@ export default function QuestionDetail() {
       const topic = await fetchTopic(Number(topicId));
       const updated = topic.questions.find(q => q.id === Number(questionId));
       if (updated) setQuestion(updated);
+      setAllQuestions(topic.questions || []);
     } catch (err) {
       setStatusMsg(t('bank.saveFailed') + err.message);
     } finally {
@@ -132,10 +152,40 @@ export default function QuestionDetail() {
         </button>
       </div>
 
-      {/* Question Text */}
+      {/* Question Text with Prev/Next Navigation */}
       <div className="card" style={{ marginBottom: 20, background: 'var(--bg-secondary)', border: '1px solid var(--border)' }}>
-        <div className="caption" style={{ marginBottom: 6 }}>{t('bank.questionDetail')}</div>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
+          <div className="caption">{t('bank.questionDetail')}</div>
+          {allQuestions.length > 1 && (
+            <div className="caption" style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 600 }}>
+              {currentIndex + 1} / {allQuestions.length}
+            </div>
+          )}
+        </div>
         <div className="heading-sm" style={{ lineHeight: 1.5 }}>{question.text}</div>
+        {/* Prev / Next arrows */}
+        {allQuestions.length > 1 && (
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 12 }}>
+            <button
+              className="btn btn-ghost btn-sm"
+              onClick={() => goToQuestion(-1)}
+              disabled={!hasPrev}
+              style={{ opacity: hasPrev ? 1 : 0.3, gap: 4 }}
+              id="prev-question-btn"
+            >
+              <ChevronLeft size={16} /> {t('bank.prevQuestion')}
+            </button>
+            <button
+              className="btn btn-ghost btn-sm"
+              onClick={() => goToQuestion(1)}
+              disabled={!hasNext}
+              style={{ opacity: hasNext ? 1 : 0.3, gap: 4 }}
+              id="next-question-btn"
+            >
+              {t('bank.nextQuestion')} <ChevronRight size={16} />
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Answer Editor */}
@@ -245,3 +295,4 @@ export default function QuestionDetail() {
     </div>
   );
 }
+

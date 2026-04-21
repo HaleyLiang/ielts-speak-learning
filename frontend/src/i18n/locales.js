@@ -84,6 +84,8 @@ export const locales = {
       saveFailed: '保存失败：',
       polishFailed: '润色失败：',
       alertNoApiKey: '请先在设置页面配置你的 API Key。',
+      prevQuestion: '上一题',
+      nextQuestion: '下一题',
     },
 
     // ─── Mock Exam ──────────────────────────────────────────
@@ -273,6 +275,8 @@ export const locales = {
       saveFailed: 'Failed to save: ',
       polishFailed: 'Failed to polish: ',
       alertNoApiKey: 'Please set your API key in Settings first.',
+      prevQuestion: 'Previous',
+      nextQuestion: 'Next',
     },
 
     exam: {
