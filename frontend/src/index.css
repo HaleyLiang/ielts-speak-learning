@@ -67,6 +67,104 @@
   --duration-slow: 500ms;
 }
 
+/* ─── Light Theme ────────────────────────────────────────────────── */
+[data-theme="light"] {
+  /* Background */
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #F1F5F9;
+  --bg-elevated: #FFFFFF;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-glass: rgba(255, 255, 255, 0.65);
+
+  /* Accent Colors */
+  --accent-primary: #2563EB;
+  --accent-secondary: #7C3AED;
+  --accent-gradient: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #6D28D9 100%);
+  --accent-gradient-subtle: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+  --accent-glow: rgba(37, 99, 235, 0.15);
+  --accent-glow-strong: rgba(37, 99, 235, 0.25);
+
+  /* Text */
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --text-accent: #2563EB;
+
+  /* Status */
+  --success: #16A34A;
+  --success-bg: rgba(22, 163, 74, 0.1);
+  --warning: #D97706;
+  --warning-bg: rgba(217, 119, 6, 0.1);
+  --error: #DC2626;
+  --error-bg: rgba(220, 38, 38, 0.08);
+
+  /* Borders */
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-default: rgba(0, 0, 0, 0.1);
+  --border-accent: rgba(37, 99, 235, 0.25);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 2px 12px rgba(37, 99, 235, 0.12);
+  --shadow-glow-strong: 0 4px 20px rgba(37, 99, 235, 0.2);
+}
+
+/* Light theme overrides for hardcoded colors */
+[data-theme="light"] body::before {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(124, 58, 237, 0.04) 0%, transparent 50%);
+}
+
+[data-theme="light"] .bottom-nav {
+  background: rgba(255, 255, 255, 0.88);
+}
+
+[data-theme="light"] .select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+}
+
+[data-theme="light"] .accordion-header:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .btn-ghost:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .modal-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .slider::-webkit-slider-thumb {
+  border-color: var(--bg-primary);
+}
+
+/* Smooth theme transition */
+html,
+body,
+.card,
+.card-glass,
+.bottom-nav,
+.btn,
+.input,
+.question-item,
+.accordion-item,
+.modal-content,
+.badge,
+.cue-card,
+.chat-bubble,
+.score-criterion,
+.feedback-item,
+.notes-area {
+  transition: background-color var(--duration-normal) var(--ease-smooth),
+    color var(--duration-normal) var(--ease-smooth),
+    border-color var(--duration-normal) var(--ease-smooth),
+    box-shadow var(--duration-normal) var(--ease-smooth);
+}
+
 /* ─── Reset & Base ──────────────────────────────────────────────── */
 *,
 *::before,

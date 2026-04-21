@@ -10,10 +10,12 @@ import QuestionDetail from './pages/QuestionDetail';
 import MockExam from './pages/MockExam';
 import Settings from './pages/Settings';
 import { useEffect } from 'react';
+import useStore from './stores/useStore';
 
 function AppContent() {
   const location = useLocation();
   const hideNav = location.pathname.startsWith('/bank/');
+  const theme = useStore((s) => s.theme);
 
   useEffect(() => {
     // Force iOS PWA to recalculate dynamic viewport height and snap fixed bottom nav
@@ -21,6 +23,11 @@ function AppContent() {
     fixViewport();
     setTimeout(fixViewport, 100);
   }, []);
+
+  // Apply theme to document
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   return (
     <div className="app-layout">

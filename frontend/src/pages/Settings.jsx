@@ -4,7 +4,7 @@
  */
 
 import { useState } from 'react';
-import { Eye, EyeOff, Trash2, Check, Plus } from 'lucide-react';
+import { Eye, EyeOff, Trash2, Check, Plus, Sun, Moon } from 'lucide-react';
 import useStore from '../stores/useStore';
 import useI18n from '../i18n/useI18n';
 import { SUPPORTED_LANGUAGES } from '../i18n/locales';
@@ -13,8 +13,8 @@ const PRESET_MODELS = [
   'gpt-4o-mini',
   'gpt-4o',
   'gpt-4-turbo',
-  'gpt-3.5-turbo',
   'deepseek-chat',
+  'deepseek-reasoner',
 ];
 
 export default function Settings() {
@@ -24,6 +24,7 @@ export default function Settings() {
     baseUrl, setBaseUrl,
     targetScore, setTargetScore,
     language, setLanguage,
+    theme, setTheme,
   } = useStore();
   const { t } = useI18n();
 
@@ -123,9 +124,9 @@ export default function Settings() {
           </div>
         </div>
 
-        <button 
-          className="btn btn-primary" 
-          onClick={handleSave} 
+        <button
+          className="btn btn-primary"
+          onClick={handleSave}
           style={{ width: '100%' }}
           id="save-api-btn"
         >
@@ -136,7 +137,7 @@ export default function Settings() {
       {/* Model Selection */}
       <div className="card" style={{ marginBottom: 16 }}>
         <div className="heading-sm" style={{ marginBottom: 16 }}>{t('settings.modelSelection')}</div>
-        
+
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {/* Preset models */}
           {PRESET_MODELS.map(m => {
@@ -153,21 +154,25 @@ export default function Settings() {
                   borderStyle: 'solid',
                 }}
               >
+                <div style={{ marginRight: 16 }} />
                 <div style={{ flex: 1 }}>
                   <div style={{ fontWeight: 600, fontSize: '0.9375rem', color: 'var(--text-primary)' }}>
                     {modelInfo?.label || m}
                   </div>
                   <div className="caption">{modelInfo?.desc || ''}</div>
                 </div>
-                {model === m && (
-                  <div style={{ 
-                    width: 24, height: 24, borderRadius: '50%', 
-                    background: 'var(--accent-gradient)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  }}>
-                    <Check size={14} color="white" />
-                  </div>
-                )}
+                <div style={{
+                  flexShrink: 0,
+                  width: 24,
+                  height: 24,
+                  borderRadius: '50%',
+                  background: model === m ? 'var(--accent-gradient)' : 'transparent',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                  √
+                </div>
               </button>
             );
           })}
@@ -183,14 +188,15 @@ export default function Settings() {
                 borderStyle: 'solid',
               }}
             >
+              <div style={{ marginRight: 16 }} />
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 600, fontSize: '0.9375rem', color: 'var(--text-primary)' }}>
                   {model}
                 </div>
                 <div className="caption">{t('settings.customModel')}</div>
               </div>
-              <div style={{ 
-                width: 24, height: 24, borderRadius: '50%', 
+              <div style={{
+                width: 24, height: 24, borderRadius: '50%',
                 background: 'var(--accent-gradient)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
@@ -315,6 +321,45 @@ export default function Settings() {
               {lang.label}
             </button>
           ))}
+        </div>
+      </div>
+
+      {/* Theme Switcher */}
+      <div className="card" style={{ marginBottom: 16 }}>
+        <div className="heading-sm" style={{ marginBottom: 16 }}>{t('settings.theme')}</div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button
+            className="btn"
+            onClick={() => setTheme('light')}
+            style={{
+              flex: 1,
+              background: theme === 'light' ? 'rgba(59, 130, 246, 0.15)' : 'var(--bg-secondary)',
+              borderColor: theme === 'light' ? 'var(--accent-primary)' : 'var(--border-default)',
+              borderWidth: 1,
+              borderStyle: 'solid',
+              color: theme === 'light' ? 'var(--accent-primary)' : 'var(--text-secondary)',
+              fontWeight: theme === 'light' ? 600 : 400,
+            }}
+            id="theme-light-btn"
+          >
+            <Sun size={16} /> {t('settings.themeLight')}
+          </button>
+          <button
+            className="btn"
+            onClick={() => setTheme('dark')}
+            style={{
+              flex: 1,
+              background: theme === 'dark' ? 'rgba(59, 130, 246, 0.15)' : 'var(--bg-secondary)',
+              borderColor: theme === 'dark' ? 'var(--accent-primary)' : 'var(--border-default)',
+              borderWidth: 1,
+              borderStyle: 'solid',
+              color: theme === 'dark' ? 'var(--accent-primary)' : 'var(--text-secondary)',
+              fontWeight: theme === 'dark' ? 600 : 400,
+            }}
+            id="theme-dark-btn"
+          >
+            <Moon size={16} /> {t('settings.themeDark')}
+          </button>
         </div>
       </div>
 

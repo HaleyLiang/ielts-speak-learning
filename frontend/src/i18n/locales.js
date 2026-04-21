@@ -133,6 +133,9 @@ export const locales = {
       targetScore: '🎯 目标分数',
       targetScoreHint: 'AI 会根据目标分数自动调整词汇难度和语法复杂度。',
       language: '🌐 语言 / Language',
+      theme: '🎨 主题外观',
+      themeLight: '明亮',
+      themeDark: '深色',
       dataManagement: '📦 数据管理',
       clearSettings: '清除本地设置',
       clearHint: '将清除浏览器中的 API Key 和偏好设置。题库数据保留在服务器上。',
@@ -149,6 +152,7 @@ export const locales = {
       'gpt-4-turbo': { label: 'GPT-4 Turbo', desc: '高性能' },
       'gpt-3.5-turbo': { label: 'GPT-3.5 Turbo', desc: '经济选项' },
       'deepseek-chat': { label: 'DeepSeek Chat', desc: '国产替代' },
+      'deepseek-reasoner': { label: 'DeepSeek Reasoner', desc: '推理模型' },
     },
 
     // ─── Score Card ─────────────────────────────────────────
@@ -316,6 +320,9 @@ export const locales = {
       targetScore: '🎯 Target Score',
       targetScoreHint: 'AI will tailor vocabulary and grammar complexity to match your target band score.',
       language: '🌐 Language / 语言',
+      theme: '🎨 Theme',
+      themeLight: 'Light',
+      themeDark: 'Dark',
       dataManagement: '📦 Data Management',
       clearSettings: 'Clear Local Settings',
       clearHint: 'This clears API key and preferences from your browser. Question bank data remains on the server.',
@@ -331,6 +338,7 @@ export const locales = {
       'gpt-4-turbo': { label: 'GPT-4 Turbo', desc: 'High performance' },
       'gpt-3.5-turbo': { label: 'GPT-3.5 Turbo', desc: 'Budget option' },
       'deepseek-chat': { label: 'DeepSeek Chat', desc: 'Alternative' },
+      'deepseek-reasoner': { label: 'DeepSeek Reasoner', desc: 'Reasoning model' },
     },
 
     score: {
