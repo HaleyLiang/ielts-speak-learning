@@ -163,6 +163,7 @@ export default function Settings() {
                 </div>
                 <div style={{
                   flexShrink: 0,
+                  alignSelf: 'center',
                   width: 24,
                   height: 24,
                   borderRadius: '50%',
